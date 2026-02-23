@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import dngnrr.aspengrove.Aspengrove;
 
 import java.util.function.Function;
 
@@ -50,6 +51,9 @@ public static final Block ASPEN_LOG = register(
           		BlockBehaviour.Properties.of().sound(SoundType.WOOD),
               		true
                   );
-)
+                  public static void initialize() {
+
+                  }
+
+
                                                }
-}
