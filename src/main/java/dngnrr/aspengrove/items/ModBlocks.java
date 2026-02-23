@@ -1,3 +1,20 @@
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.function.Function;
+
+import static dngnrr.aspengrove.Aspengrove.MOD_ID;
+
 public class ModBlocks {
      private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
        // Create a registry key for the block
@@ -20,11 +37,11 @@ public class ModBlocks {
                                        }
 
                                         private static ResourceKey<Block> keyOfBlock(String name) {
-                                          return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+                                          return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, name));
                                            }
 
                                             private static ResourceKey<Item> keyOfItem(String name) {
-                                              return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+                                              return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, name));
                                                }
 public static final Block ASPEN_LOG = register(
   		"aspen_log",
