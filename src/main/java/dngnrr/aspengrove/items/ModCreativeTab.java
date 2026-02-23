@@ -25,7 +25,7 @@ public class ModCreativeTab {
     public static final CreativeModeTab ASPEN_LOG = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
             Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "Aspengrove"),
             FabricItemGroup.builder().title(Component.translatable("itemGroup.aspengrove"))
-                        entries.accept(ModBlocks.MAMA_DANJENA_BLOCK);
+                        entries.accept(ModBlocks.ASPEN_LOG);
                     }).build());
 
     public static void initialize() {}
