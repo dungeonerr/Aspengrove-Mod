@@ -22,13 +22,6 @@
 			"dngnrr.aspengrove.AspengroveClient"
 		]
 	},
-	"mixins": [
-		"aspengrove.mixins.json",
-		{
-			"config": "aspengrove.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.21.11",

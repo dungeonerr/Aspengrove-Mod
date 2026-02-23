@@ -26,6 +26,12 @@ public class ModBlocks {
                                             private static ResourceKey<Item> keyOfItem(String name) {
                                               return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
                                                }
-
+public static final Block ASPEN_LOG = register(
+  		"aspen_log",
+      		Block::new,
+          		BlockBehaviour.Properties.of().sound(SoundType.WOOD),
+              		true
+                  );
+)
                                                }
 }
