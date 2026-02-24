@@ -8,22 +8,11 @@ import dngnrr.aspengrove.classes.ModBlocks;
 import dngnrr.aspengrove.classes.ModCreativeTab;
 
 public class Aspengrove implements ModInitializer {
-	public static final String MOD_ID = "aspengrove";
-
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	@Override
-	public void onInitialize() {
-		ModBlocks.initialize();
-		ModCreativeTab.initialize();
-		
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
-
-	}
+public static final String MOD_ID = "aspengrove";
+public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+@Override
+public void onInitialize() {
+ModBlocks.initialize();
+ModCreativeTab.initialize();
+}
 }
