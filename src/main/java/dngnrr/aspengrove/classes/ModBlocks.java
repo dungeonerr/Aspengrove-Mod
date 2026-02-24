@@ -49,7 +49,7 @@ public class ModBlocks {
 public static final Block ASPEN_LOG = register(
   		"aspen_log",
       		RotatedPillarBlock::new,
-          		BlockBehaviour.Properties.of().sound(SoundType.WOOD),
+          		BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0F),
               		true
                   );
                   public static void initialize() {
