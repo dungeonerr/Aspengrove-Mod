@@ -4,8 +4,8 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import dngnrr.aspengrove.items.ModBlocks;
-import dngnrr.aspengrove.items.ModCreativeTab;
+import dngnrr.aspengrove.classes.ModBlocks;
+import dngnrr.aspengrove.classesd.ModCreativeTab;
 
 public class Aspengrove implements ModInitializer {
 	public static final String MOD_ID = "aspengrove";
