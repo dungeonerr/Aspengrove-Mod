@@ -19,7 +19,6 @@ public class Aspengrove implements ModInitializer {
 	public void onInitialize() {
 		ModBlocks.initialize();
 		ModCreativeTab.initialize();
-        FuelRegistry.INSTANCE.add(ModBlocks.ASPEN_LOG, value 600);
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
