@@ -1,16 +1,16 @@
 {
     "variants": {
         "axis=x": {
-                "model": "aspengrove:block/aspen_log_horizontal",
-                        "x": 90,
-                            "y": 90
-                                },
-                                    "axis=y": {
-                                            "model": "aspengrove:block/aspen_log"
-                                                },
-                                                    "axis=z": {
-                                                        "model": "aspengrove:block/aspen_log_horizontal",
-                                                                "x": 90
-                                                                    }
+            "model": "aspengrove:block/aspen_log_horizontal",
+            "x": 90,
+            "y": 90
+        },
+        "axis=y": {
+            "model": "aspengrove:block/aspen_log"
+        },
+        "axis=z": {
+            "model": "aspengrove:block/aspen_log_horizontal",
+            "x": 90
         }
     }
+}
