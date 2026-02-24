@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.slf4j.Logger;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import org.slf4j.LoggerFactory;
 import dngnrr.aspengrove.Aspengrove;
 
@@ -47,7 +48,7 @@ public class ModBlocks {
                                                }
 public static final Block ASPEN_LOG = register(
   		"aspen_log",
-      		Block::new,
+      		RotatedPillarBlock::new,
           		BlockBehaviour.Properties.of().sound(SoundType.WOOD),
               		true
                   );
