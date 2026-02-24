@@ -1,4 +1,4 @@
-package dngnrr.aspengrove.items;
+package dngnrr.aspengrove.classes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

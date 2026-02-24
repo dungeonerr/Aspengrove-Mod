@@ -1,4 +1,4 @@
-package dngnrr.aspengrove.items;
+package dngnrr.aspengrove.classes;
 
 import dngnrr.aspengrove.Aspengrove;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
