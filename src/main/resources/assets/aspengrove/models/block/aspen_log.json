@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft:block/cube_collum",
+    "parent": "minecraft:block/cube_column",
     "textures": {
         "end": "aspengrove:block/aspen_log_top",
         "side": "aspengrove:block/aspen_log"
