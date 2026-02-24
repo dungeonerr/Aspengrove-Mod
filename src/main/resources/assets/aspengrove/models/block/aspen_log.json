@@ -1,8 +1,7 @@
 {
-    "parent": "minecraft:block/cube_bottom_top",
+    "parent": "minecraft:block/cube_collum",
     "textures": {
-        "bottom": "aspengrove:block/aspen_log_top",
-        "top": "aspengrove:block/aspen_log_top",
+        "end": "aspengrove:block/aspen_log_top",
         "side": "aspengrove:block/aspen_log_side"
     }
 }
