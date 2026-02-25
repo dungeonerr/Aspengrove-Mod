@@ -2,21 +2,24 @@
 	"schemaVersion": 1,
 	"id": "aspengrove",
 	"version": "1.0.0",
-	"name": "aspengrove",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Aspen Grove",
+	"description": "Add new blocks and biome!",
 	"authors": [
-		"Me!"
+		"Dungeonerr",
+		"StarmanMine142"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/dungeonerr/Aspen-grove"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/aspengrove/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"dngnrr.aspengrove.Aspengrove"
+		],
+		"client": [
+			"dngnrr.aspengrove.AspengroveClient"
 		]
 	},
 	"depends": {

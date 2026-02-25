@@ -1,3 +1,10 @@
 {
-    "block.aspengrove.aspen_log": "Осиновое бревно"
+    "block.aspengrove.aspen_log": "Осиновое бревно",
+    "block.aspengrove.stripped_aspen_log": "Обтёсаное осиновое бревно",
+    "block.aspengrove.aspen_wood": "Осиновая древесина",
+    "block.aspengrove.stripped_aspen_wood": "Обтёсаное осиновая древесина",
+    "block.aspengrove.aspen_planks": "Осиновые доски",
+    "block.aspengrove.aspen_leaves": "Осиновая листва",
+    "itemGroup.aspengrove": "Aspen Grove",
+    "modmenu.descriptionTranslation.aspengrove": "Добавляет новые блоки и биом!"
 }

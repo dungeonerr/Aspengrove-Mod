@@ -1,3 +1,10 @@
 {
-    "block.aspengrove.aspen_log": "Осикова колода"
+    "block.aspengrove.aspen_log": "Осикова колода",
+    "block.aspengrove.stripped_aspen_log": "Обтесана осикова колода",
+    "block.aspengrove.aspen_wood": "Осикова деревина",
+    "block.aspengrove.stripped_aspen_wood": "Обтесана осикова деревина",
+    "block.aspengrove.aspen_planks": "Осикові дошки",
+    "block.aspengrove.aspen_leaves": "Осикове листя",
+    "itemGroup.aspengrove": "Aspen Grove",
+    "modmenu.descriptionTranslation.aspengrove": "Додає нові блоки та біом!"
 }

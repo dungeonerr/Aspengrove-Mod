@@ -2,17 +2,15 @@ package dngnrr.aspengrove;
 
 import net.fabricmc.api.ModInitializer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import dngnrr.aspengrove.classes.ModBlocks;
-import dngnrr.aspengrove.classes.ModCreativeTab;
+import dngnrr.aspengrove.classes.*;
 
 public class Aspengrove implements ModInitializer {
-public static final String MOD_ID = "aspengrove";
-public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-@Override
-public void onInitialize() {
-ModBlocks.initialize();
-ModCreativeTab.initialize();
-}
+    public static final String MOD_ID = "aspengrove";
+
+    @Override
+    public void onInitialize() {
+        ModBlocks.initialize();
+        ModCreativeTab.initialize();
+        ModTags.initialize();
+    }
 }
