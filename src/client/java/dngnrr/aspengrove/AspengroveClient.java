@@ -9,5 +9,6 @@ public class AspengroveClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_LEAVES,ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_SAPLING,ChunkSectionLayer.CUTOUT);
     }
 }

@@ -11,6 +11,7 @@
     "block.aspengrove.aspen_pressure_plate": "Осикова натискна плита",
     "block.aspengrove.aspen_button": "Осикова кнопка",
     "block.aspengrove.aspen_leaves": "Осикове листя",
+    "block.aspengrove.aspen_sapling": "Паросток осики",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Додає нові блоки та біом!"
 }

@@ -143,10 +143,8 @@ public class ModBlocks {
     public static final Block ASPEN_SLAB = register(
             "aspen_slab",
             SlabBlock::new,
-            BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.WOOD)
-                    .sound(SoundType.WOOD)
-                    .strength(2.0F),
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS),
             true
     );
 
@@ -160,10 +158,8 @@ public class ModBlocks {
     public static final Block ASPEN_FENCE = register(
             "aspen_fence",
             FenceBlock::new,
-            BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.WOOD)
-                    .sound(SoundType.WOOD)
-                    .strength(2.0F),
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS),
             true
     );
 
@@ -209,6 +205,20 @@ public class ModBlocks {
             true
     );
 
+    public static final Block ASPEN_SAPLING = register(
+            "aspen_sapling",
+            (settings) -> new SaplingBlock(ModTreeGrowers.ASPEN, settings),
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollision()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY)
+                    .noOcclusion(),
+            true
+    );
+
     public static void registerFuels() {
         FuelRegistryEvents.BUILD.register((builder, context) -> {
             builder.add(ASPEN_PLANKS, 300);
@@ -219,6 +229,8 @@ public class ModBlocks {
             builder.add(ASPEN_FENCE, 300);
             builder.add(ASPEN_FENCE_GATE, 300);
             builder.add(ASPEN_STAIRS, 300);
+            builder.add(ASPEN_BUTTON, 300);
+            builder.add(ASPEN_PRESSURE_PLATE, 300);
             builder.add(ASPEN_SLAB, 150);
         });
     }
@@ -226,6 +238,20 @@ public class ModBlocks {
     public static void registerStrippables() {
         StrippableBlockRegistry.register(ASPEN_LOG, STRIPPED_ASPEN_LOG);
         StrippableBlockRegistry.register(ASPEN_WOOD, STRIPPED_ASPEN_WOOD);
+    }
+
+    public static void registerFlammables() {
+        FireBlock fireBlock = (FireBlock) Blocks.FIRE;
+        fireBlock.setFlammable(ASPEN_LOG, 5, 5);
+        fireBlock.setFlammable(STRIPPED_ASPEN_LOG, 5, 5);
+        fireBlock.setFlammable(ASPEN_WOOD, 5, 5);
+        fireBlock.setFlammable(STRIPPED_ASPEN_WOOD, 5, 5);
+        fireBlock.setFlammable(ASPEN_PLANKS, 5, 20);
+        fireBlock.setFlammable(ASPEN_SLAB, 5, 20);
+        fireBlock.setFlammable(ASPEN_STAIRS, 5, 20);
+        fireBlock.setFlammable(ASPEN_FENCE, 5, 20);
+        fireBlock.setFlammable(ASPEN_FENCE_GATE, 5, 20);
+        fireBlock.setFlammable(ASPEN_LEAVES, 30, 60); // Листья горят очень быстро
     }
 
     public static void initialize() {

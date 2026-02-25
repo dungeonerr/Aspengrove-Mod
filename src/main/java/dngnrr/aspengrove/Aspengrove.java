@@ -12,16 +12,14 @@ import net.minecraft.resources.Identifier;
 public class Aspengrove implements ModInitializer {
     public static final String MOD_ID = "aspengrove";
 
-    public static final SimpleParticleType ASPEN_LEAF_PARTICLE = FabricParticleTypes.simple();
-
     @Override
     public void onInitialize() {
         ModBlocks.initialize();
         ModBlocks.registerStrippables();
         ModBlocks.registerFuels();
+        ModBlocks.registerFlammables();
         ModCreativeTab.initialize();
         ModTags.initialize();
-
-        Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "aspen_leaf_particle"), ASPEN_LEAF_PARTICLE);
+        ModTreeGrowers.initialize();
     }
 }

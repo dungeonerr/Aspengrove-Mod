@@ -11,6 +11,7 @@
     "block.aspengrove.aspen_pressure_plate": "Aspen Pressure Plate",
     "block.aspengrove.aspen_button": "Aspen Button",
     "block.aspengrove.aspen_leaves": "Aspen Leaves",
+    "block.aspengrove.aspen_sapling": "Aspen Sapling",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Add new blocks and biome!"
 }

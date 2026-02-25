@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "aspengrove:aspen_1",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "aspengrove:aspen_1"
+      },
+      {
+        "chance": 0.3,
+        "feature": "aspengrove:aspen_2"
+      },
+      {
+        "chance": 0.3,
+        "feature": "aspengrove:aspen_3"
+      }
+    ]
+  }
+}
