@@ -2,6 +2,7 @@ package dngnrr.aspengrove.classes;
 
 import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,6 +15,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import dngnrr.aspengrove.Aspengrove;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.core.BlockPos;
@@ -24,6 +27,7 @@ import net.minecraft.resources.Identifier;
 import java.util.function.Function;
 
 public class ModBlocks {
+
     private static class AspenLeavesBlock extends LeavesBlock {
         public static final MapCodec<AspenLeavesBlock> CODEC = simpleCodec(AspenLeavesBlock::new);
 
@@ -132,7 +136,61 @@ public class ModBlocks {
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD)
                     .sound(SoundType.WOOD)
-                    .strength(2.0F, 3.0F),
+                    .strength(2.0F),
+            true
+    );
+
+    public static final Block ASPEN_SLAB = register(
+            "aspen_slab",
+            SlabBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD)
+                    .sound(SoundType.WOOD)
+                    .strength(2.0F),
+            true
+    );
+
+    public static final Block ASPEN_STAIRS = register(
+            "aspen_stairs",
+            (settings) -> new StairBlock(ASPEN_PLANKS.defaultBlockState(), settings),
+            BlockBehaviour.Properties.ofFullCopy(ASPEN_PLANKS),
+            true
+    );
+
+    public static final Block ASPEN_FENCE = register(
+            "aspen_fence",
+            FenceBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD)
+                    .sound(SoundType.WOOD)
+                    .strength(2.0F),
+            true
+    );
+
+    public static final Block ASPEN_FENCE_GATE = register(
+            "aspen_fence_gate",
+            (settings) -> new FenceGateBlock(WoodType.OAK, settings),
+            BlockBehaviour.Properties.ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .noOcclusion(),
+            true
+    );
+
+    public static final Block ASPEN_PRESSURE_PLATE = register(
+            "aspen_pressure_plate",
+            (settings) -> new PressurePlateBlock(WoodType.OAK.setType(), settings),
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .noCollision()
+                    .strength(0.5f),
+            true
+    );
+
+    public static final Block ASPEN_BUTTON = register(
+            "aspen_button",
+            (settings) -> new ButtonBlock(BlockSetType.OAK, 30, settings),
+            BlockBehaviour.Properties.ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .noCollision()
+                    .strength(0.5f),
             true
     );
 
@@ -140,6 +198,7 @@ public class ModBlocks {
             "aspen_leaves",
             AspenLeavesBlock::new,
             BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.GRASS)
                     .sound(SoundType.GRASS)
                     .strength(0.2f)
                     .isSuffocating((state, world, pos) -> false)
@@ -157,7 +216,16 @@ public class ModBlocks {
             builder.add(STRIPPED_ASPEN_LOG, 300);
             builder.add(ASPEN_WOOD, 300);
             builder.add(STRIPPED_ASPEN_WOOD, 300);
+            builder.add(ASPEN_FENCE, 300);
+            builder.add(ASPEN_FENCE_GATE, 300);
+            builder.add(ASPEN_STAIRS, 300);
+            builder.add(ASPEN_SLAB, 150);
         });
+    }
+
+    public static void registerStrippables() {
+        StrippableBlockRegistry.register(ASPEN_LOG, STRIPPED_ASPEN_LOG);
+        StrippableBlockRegistry.register(ASPEN_WOOD, STRIPPED_ASPEN_WOOD);
     }
 
     public static void initialize() {

@@ -15,11 +15,17 @@ public class ModCreativeTab {
             FabricItemGroup.builder( ).title(Component.translatable("itemGroup.aspengrove"))
                     .icon(() -> new ItemStack(ModBlocks.ASPEN_LOG)).displayItems((displayContext,entries) -> {
                         entries.accept(ModBlocks.ASPEN_LOG);
-                        entries.accept(ModBlocks.STRIPPED_ASPEN_LOG);
                         entries.accept(ModBlocks.ASPEN_WOOD);
+                        entries.accept(ModBlocks.STRIPPED_ASPEN_LOG);
                         entries.accept(ModBlocks.STRIPPED_ASPEN_WOOD);
                         entries.accept(ModBlocks.ASPEN_PLANKS);
+                        entries.accept(ModBlocks.ASPEN_STAIRS);
+                        entries.accept(ModBlocks.ASPEN_SLAB);
+                        entries.accept(ModBlocks.ASPEN_FENCE);
+                        entries.accept(ModBlocks.ASPEN_FENCE_GATE);
                         entries.accept(ModBlocks.ASPEN_LEAVES);
+                        entries.accept(ModBlocks.ASPEN_PRESSURE_PLATE);
+                        entries.accept(ModBlocks.ASPEN_BUTTON);
                     }).build( ));
 
     public static void initialize() {

@@ -17,6 +17,8 @@ public class Aspengrove implements ModInitializer {
     @Override
     public void onInitialize() {
         ModBlocks.initialize();
+        ModBlocks.registerStrippables();
+        ModBlocks.registerFuels();
         ModCreativeTab.initialize();
         ModTags.initialize();
 
