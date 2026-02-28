@@ -77,6 +77,6 @@
     ["minecraft:ore_dirt", "minecraft:ore_gravel", "minecraft:ore_coal_upper", "minecraft:ore_iron_upper", "minecraft:ore_gold", "minecraft:ore_redstone", "minecraft:ore_diamond", "minecraft:ore_lapis", "minecraft:ore_copper"],
     [],
     ["minecraft:spring_water", "minecraft:spring_lava"],
-    ["minecraft:glow_lichen", "minecraft:flower_plains", "minecraft:patch_grass_plain", "minecraft:patch_sugar_cane"]
+    ["minecraft:glow_lichen", "minecraft:patch_large_fern", "minecraft:flower_plains", "minecraft:patch_grass_taiga_2", "minecraft:patch_grass_plain", "minecraft:patch_sugar_cane"]
   ]
 }
