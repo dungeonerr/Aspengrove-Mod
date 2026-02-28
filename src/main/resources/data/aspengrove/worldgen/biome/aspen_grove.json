@@ -1,7 +1,7 @@
 {
   "temperature": 0.7,
   "downfall": 0.8,
-  "has_precipitation": false,
+  "has_precipitation": true,
   "effects": {
     "water_color": 4159204,
     "grass_color": 14004555,
@@ -51,7 +51,7 @@
       "energy_budget": 5,
       "charge": 1
     },
-    "fox": {
+    "minecraft:fox": {
       "energy_budget": 5,
       "charge": 0.5
     },
