@@ -29,6 +29,7 @@ public class ModCreativeTab {
                         entries.accept(ModBlocks.ASPEN_BUTTON);
                         entries.accept(ModBlocks.ASPEN_SIGN_ITEM);
                         entries.accept(ModBlocks.ASPEN_HANGING_SIGN_ITEM);
+                        entries.accept(ModBlocks.ASPEN_SHELF);
                         entries.accept(ModBlocks.ASPEN_LEAVES);
                         entries.accept(ModBlocks.ASPEN_SAPLING);
                     }).build( ));

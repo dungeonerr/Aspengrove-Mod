@@ -11,10 +11,15 @@ public class Aspengrove implements ModInitializer {
     public void onInitialize() {
         ModWoodTypes.initialize();
         ModBlocks.initialize();
-        ModBlocks.registerStrippables();
         ModBlocks.registerFuels();
+        ModBlocks.registerStrippables();
         ModBlocks.registerFlammables();
         ModCreativeTab.initialize();
         ModTags.initialize();
-        ModTreeGrowers.initialize();}
+        ModTreeGrowers.initialize();
+        ModEntities.initialize();
+        ModItems.initialize();
+        ModItems.registerFuels();
+        ModBiomes.registerBiomes();
+    }
 }

@@ -11,14 +11,12 @@ base {
 }
 
 repositories {
-	mavenCentral()
 	maven {
 		name = "Modrinth"
 		url = "https://api.modrinth.com/maven"
 	}
 	maven {
-			name = 'TerraformersMC'
-			url = 'https://maven.terraformersmc.com/'
+		url = "https://maven.terraformersmc.com/releases/"
 	}
 }
 
@@ -35,11 +33,15 @@ loom {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version}"
+	modImplementation "com.terraformersmc:biolith-fabric:${biolith_version}"
+
+	include "com.terraformersmc:biolith-fabric:${biolith_version}"
+	include "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version}"
 }
 
 processResources {

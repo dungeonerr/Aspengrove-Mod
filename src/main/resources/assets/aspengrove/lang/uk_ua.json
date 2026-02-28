@@ -18,9 +18,14 @@
     "block.aspengrove.aspen_wall_hanging_sign": "Осикова настінна вивіска",
     "block.aspengrove.aspen_leaves": "Осикове листя",
     "block.aspengrove.aspen_sapling": "Паросток осики",
+    "block.aspengrove.aspen_shelf": "Осикова полиця",
     "biome.aspengrove.aspen_grove": "Осиковий гай",
     "item.aspengrove.aspen_sign": "Осикова табличка",
+    "entity.aspengrove.aspen_boat": "Осиковий човен",
+    "entity.aspengrove.aspen_chest_boat": "Осиковий човен зі скринею",
     "item.aspengrove.aspen_hanging_sign": "Осикова вивіска",
+    "item.aspengrove.aspen_boat": "Осиковий човен",
+    "item.aspengrove.aspen_chest_boat": "Осиковий човен зі скринею",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Додає нові блоки та біом!"
 }

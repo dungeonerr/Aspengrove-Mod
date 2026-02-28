@@ -35,7 +35,7 @@ import java.util.Set;
 public class ModBlocks {
 
     public static void initialize() {
-        addSignsToBlockEntityTypes();
+        addToBlockEntityTypes();
     }
 
     private static class AspenLeavesBlock extends LeavesBlock {
@@ -243,8 +243,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_sign"),
-            new StandingSignBlock(ModWoodTypes.ASPEN,BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_sign"),
+            new StandingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_sign"))
                     .forceSolidOn()
@@ -255,8 +255,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_WALL_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_wall_sign"),
-            new WallSignBlock(ModWoodTypes.ASPEN,BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_sign"),
+            new WallSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_wall_sign"))
                     .forceSolidOn()
@@ -266,7 +266,7 @@ public class ModBlocks {
     );
     public static final Item ASPEN_SIGN_ITEM = Registry.register(
             BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_sign"),
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_sign"),
             new SignItem(
                     ASPEN_SIGN,
                     ASPEN_WALL_SIGN,
@@ -279,8 +279,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_hanging_sign"),
-            new CeilingHangingSignBlock(ModWoodTypes.ASPEN,BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_hanging_sign"),
+            new CeilingHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_hanging_sign"))
                     .forceSolidOn()
@@ -291,8 +291,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_WALL_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_wall_hanging_sign"),
-            new WallHangingSignBlock(ModWoodTypes.ASPEN,BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_hanging_sign"),
+            new WallHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_wall_hanging_sign"))
                     .forceSolidOn()
@@ -303,7 +303,7 @@ public class ModBlocks {
 
     public static final Item ASPEN_HANGING_SIGN_ITEM = Registry.register(
             BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspen_hanging_sign"),
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_hanging_sign"),
             new HangingSignItem(
                     ASPEN_HANGING_SIGN,
                     ASPEN_WALL_HANGING_SIGN,
@@ -311,6 +311,15 @@ public class ModBlocks {
                             .stacksTo(16)
                             .setId(keyOfItem("aspen_hanging_sign"))
             )
+    );
+
+    public static final Block ASPEN_SHELF = register(
+            "aspen_shelf",
+            ShelfBlock::new,
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .sound(SoundType.SHELF),
+            true
     );
 
     public static final Block ASPEN_LEAVES = register(
@@ -358,6 +367,7 @@ public class ModBlocks {
             builder.add(ASPEN_PRESSURE_PLATE,300);
             builder.add(ASPEN_DOOR,300);
             builder.add(ASPEN_TRAPDOOR,300);
+            builder.add(ASPEN_SHELF,300);
             builder.add(ASPEN_SIGN_ITEM,200);
             builder.add(ASPEN_HANGING_SIGN_ITEM,200);
             builder.add(ASPEN_SLAB,150);
@@ -389,8 +399,9 @@ public class ModBlocks {
         fireBlock.setFlammable(ASPEN_WALL_HANGING_SIGN, 20, 5);
     }
 
-    private static void addSignsToBlockEntityTypes() {
+    private static void addToBlockEntityTypes() {
         try {
+
             Field targetField = null;
             for (Field field : BlockEntityType.class.getDeclaredFields()) {
                 if (Set.class.isAssignableFrom(field.getType())) {
@@ -440,6 +451,21 @@ public class ModBlocks {
             }
             if (modified) {
                 System.out.println("[AspenGrove] Successfully added hanging signs to BlockEntityType.HANGING_SIGN");
+            }
+
+            Set<Block> shelfBlocks = (Set<Block>) targetField.get(BlockEntityType.SHELF);
+            modified = false;
+            try {
+                modified = shelfBlocks.add(ASPEN_SHELF);
+            } catch (UnsupportedOperationException e) {
+
+                Set<Block> newShelfBlocks = new java.util.HashSet<>(shelfBlocks);
+                newShelfBlocks.add(ASPEN_SHELF);
+                targetField.set(BlockEntityType.SHELF, newShelfBlocks);
+                modified = true;
+            }
+            if (modified) {
+                System.out.println("[AspenGrove] Successfully added shelves to BlockEntityType.SHELF");
             }
 
         } catch (Exception e) {
