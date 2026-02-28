@@ -11,11 +11,15 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	mavenCentral()
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
+	maven {
+			name = 'TerraformersMC'
+			url = 'https://maven.terraformersmc.com/'
+	}
 }
 
 loom {
@@ -27,7 +31,7 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
+	accessWidenerPath = file("src/main/resources/aspengrove.accesswidener")
 }
 
 dependencies {
@@ -35,17 +39,27 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
 }
 
 processResources {
-	inputs.property "version", project.version
+	def resourceTargets = [
+			"version": project.version,
+			"minecraft_version": project.minecraft_version,
+			"loader_version": project.loader_version,
+			"java_version": project.java_version,
+			"archives_base_name":project.archives_base_name,
+			"mod_name": project.mod_name,
+			"mod_description": project.mod_description,
+			"mod_description": project.mod_description,
+			"sources_link": project.sources_link,
+			"issues_link": project.issues_link
+	]
+
+	inputs.properties(resourceTargets)
 
 	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version
+		expand resourceTargets
 	}
 }
 

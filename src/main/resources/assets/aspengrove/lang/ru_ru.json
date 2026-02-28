@@ -10,8 +10,17 @@
     "block.aspengrove.aspen_slab": "Осиновая плита",
     "block.aspengrove.aspen_pressure_plate": "Осиновая нажимная плита",
     "block.aspengrove.aspen_button": "Осинованя кнопка",
+    "block.aspengrove.aspen_door": "Осиновая дверь",
+    "block.aspengrove.aspen_trapdoor": "Осиновый люк",
+    "block.aspengrove.aspen_sign": "Осиновая табличка",
+    "block.aspengrove.aspen_wall_sign": "Осиновая настенная табличка",
+    "block.aspengrove.aspen_hanging_sign": "Осиновая подвесная табличка",
+    "block.aspengrove.aspen_wall_hanging_sign": "Осиновая настенная подвесная табличка",
     "block.aspengrove.aspen_leaves": "Осиновая листва",
     "block.aspengrove.aspen_sapling": "Осиновый саженец",
+    "biome.aspengrove.aspen_grove": "Осиновая роща",
+    "item.aspengrove.aspen_sign": "Осиновая табличка",
+    "item.aspengrove.aspen_hanging_sign": "Осиновая подвесная табличка",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Добавляет новые блоки и биом!"
 }

@@ -23,8 +23,12 @@ public class ModCreativeTab {
                         entries.accept(ModBlocks.ASPEN_SLAB);
                         entries.accept(ModBlocks.ASPEN_FENCE);
                         entries.accept(ModBlocks.ASPEN_FENCE_GATE);
+                        entries.accept(ModBlocks.ASPEN_DOOR);
+                        entries.accept(ModBlocks.ASPEN_TRAPDOOR);
                         entries.accept(ModBlocks.ASPEN_PRESSURE_PLATE);
                         entries.accept(ModBlocks.ASPEN_BUTTON);
+                        entries.accept(ModBlocks.ASPEN_SIGN_ITEM);
+                        entries.accept(ModBlocks.ASPEN_HANGING_SIGN_ITEM);
                         entries.accept(ModBlocks.ASPEN_LEAVES);
                         entries.accept(ModBlocks.ASPEN_SAPLING);
                     }).build( ));

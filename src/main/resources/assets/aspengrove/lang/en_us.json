@@ -10,8 +10,17 @@
     "block.aspengrove.aspen_slab": "Aspen Slab",
     "block.aspengrove.aspen_pressure_plate": "Aspen Pressure Plate",
     "block.aspengrove.aspen_button": "Aspen Button",
+    "block.aspengrove.aspen_door": "Aspen Door",
+    "block.aspengrove.aspen_trapdoor": "Aspen Trapdoor",
+    "block.aspengrove.aspen_sign": "Aspen Sign",
+    "block.aspengrove.aspen_wall_sign": "Aspen Wall Sign",
+    "block.aspengrove.aspen_hanging_sign": "Aspen Hanging Sign",
+    "block.aspengrove.aspen_wall_hanging_sign": "Aspen Wall Hanging Sign",
     "block.aspengrove.aspen_leaves": "Aspen Leaves",
     "block.aspengrove.aspen_sapling": "Aspen Sapling",
+    "biome.aspengrove.aspen_grove": "Aspen Grove",
+    "item.aspengrove.aspen_sign": "Aspen Sign",
+    "item.aspengrove.aspen_hanging_sign": "Aspen Hanging Sign",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Add new blocks and biome!"
 }

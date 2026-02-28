@@ -10,8 +10,17 @@
     "block.aspengrove.aspen_slab": "Осикова плита",
     "block.aspengrove.aspen_pressure_plate": "Осикова натискна плита",
     "block.aspengrove.aspen_button": "Осикова кнопка",
+    "block.aspengrove.aspen_door": "Осикові двері",
+    "block.aspengrove.aspen_trapdoor": "Осиковий люк",
+    "block.aspengrove.aspen_sign": "Осикова табличка",
+    "block.aspengrove.aspen_wall_sign": "Осикова настінна табличка",
+    "block.aspengrove.aspen_hanging_sign": "Осикова вивіска",
+    "block.aspengrove.aspen_wall_hanging_sign": "Осикова настінна вивіска",
     "block.aspengrove.aspen_leaves": "Осикове листя",
     "block.aspengrove.aspen_sapling": "Паросток осики",
+    "biome.aspengrove.aspen_grove": "Осиковий гай",
+    "item.aspengrove.aspen_sign": "Осикова табличка",
+    "item.aspengrove.aspen_hanging_sign": "Осикова вивіска",
     "itemGroup.aspengrove": "Aspen Grove",
     "modmenu.descriptionTranslation.aspengrove": "Додає нові блоки та біом!"
 }

@@ -1,0 +1,82 @@
+{
+  "temperature": 0.7,
+  "downfall": 0.8,
+  "has_precipitation": false,
+  "effects": {
+    "water_color": 4159204,
+    "grass_color": 14004555,
+    "foliage_color": 15121470,
+    "dry_foliage_color": 15121470
+  },
+  "spawners": {
+    "creature": [
+      {
+        "type": "minecraft:pig",
+        "weight": 8,
+        "minCount": 4,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:sheep",
+        "weight": 8,
+        "minCount": 4,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:cow",
+        "weight": 5,
+        "minCount": 5,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:fox",
+        "weight": 12,
+        "minCount": 4,
+        "maxCount": 7
+      },
+      {
+        "type": "minecraft:chicken",
+        "weight": 8,
+        "minCount": 4,
+        "maxCount": 5
+      }
+    ]
+  },
+  "spawn_costs": {
+    "minecraft:cow": {
+      "energy_budget": 5,
+      "charge": 1
+    },
+    "minecraft:pig": {
+      "energy_budget": 5,
+      "charge": 1
+    },
+    "fox": {
+      "energy_budget": 5,
+      "charge": 0.5
+    },
+    "minecraft:chicken": {
+      "energy_budget": 5,
+      "charge": 1
+    },
+    "minecraft:sheep": {
+      "energy_budget": 5,
+      "charge": 1
+    }
+  },
+  "carvers": [
+    "minecraft:canyon"
+  ],
+  "features": [
+    [],
+    ["minecraft:lake_lava_underground", "minecraft:lake_lava_surface"],
+    ["minecraft:amethyst_geode"],
+    ["minecraft:monster_room", "minecraft:monster_room_deep"],
+    [],
+    ["aspengrove:aspen_tree_placed", "aspengrove:aspen_vegetation"],
+    ["minecraft:ore_dirt", "minecraft:ore_gravel", "minecraft:ore_coal_upper", "minecraft:ore_iron_upper", "minecraft:ore_gold", "minecraft:ore_redstone", "minecraft:ore_diamond", "minecraft:ore_lapis", "minecraft:ore_copper"],
+    [],
+    ["minecraft:spring_water", "minecraft:spring_lava"],
+    ["minecraft:glow_lichen", "minecraft:flower_plains", "minecraft:patch_grass_plain", "minecraft:patch_sugar_cane"]
+  ]
+}
