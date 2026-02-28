@@ -177,7 +177,8 @@ public class ModBlocks {
     public static final Block ASPEN_STAIRS = register(
             "aspen_stairs",
             (settings) -> new StairBlock(ASPEN_PLANKS.defaultBlockState(),settings),
-            BlockBehaviour.Properties.ofFullCopy(ASPEN_PLANKS),
+            BlockBehaviour.Properties
+                    .ofFullCopy(ASPEN_PLANKS),
             true
     );
 
@@ -192,7 +193,8 @@ public class ModBlocks {
     public static final Block ASPEN_FENCE_GATE = register(
             "aspen_fence_gate",
             (settings) -> new FenceGateBlock(WoodType.OAK,settings),
-            BlockBehaviour.Properties.ofFullCopy(ModBlocks.ASPEN_PLANKS)
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
                     .noOcclusion(),
             true
     );
@@ -210,7 +212,8 @@ public class ModBlocks {
     public static final Block ASPEN_BUTTON = register(
             "aspen_button",
             (settings) -> new ButtonBlock(BlockSetType.OAK,30,settings),
-            BlockBehaviour.Properties.ofFullCopy(ModBlocks.ASPEN_PLANKS)
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
                     .noCollision()
                     .strength(0.5f),
             true
@@ -219,7 +222,11 @@ public class ModBlocks {
     public static final Block ASPEN_DOOR = register(
             "aspen_door",
             (settings) -> new DoorBlock(BlockSetType.OAK,settings),
-            BlockBehaviour.Properties.ofFullCopy(ModBlocks.ASPEN_PLANKS),
+            BlockBehaviour.Properties
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .isSuffocating((state,world,pos) -> false)
+                    .isViewBlocking((state,world,pos) -> false)
+                    .noOcclusion(),
             true
     );
 
@@ -227,7 +234,10 @@ public class ModBlocks {
             "aspen_trapdoor",
             (settings) -> new TrapDoorBlock(BlockSetType.OAK,settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS),
+                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .isSuffocating((state,world,pos) -> false)
+                    .isViewBlocking((state,world,pos) -> false)
+                    .noOcclusion(),
             true
     );
 
@@ -381,7 +391,6 @@ public class ModBlocks {
 
     private static void addSignsToBlockEntityTypes() {
         try {
-            // Ищем поле с типом Set<Block>
             Field targetField = null;
             for (Field field : BlockEntityType.class.getDeclaredFields()) {
                 if (Set.class.isAssignableFrom(field.getType())) {
@@ -402,13 +411,12 @@ public class ModBlocks {
             }
             targetField.setAccessible(true);
 
-            // Обычные таблички
             Set<Block> signBlocks = (Set<Block>) targetField.get(BlockEntityType.SIGN);
             boolean modified = false;
             try {
                 modified = signBlocks.add(ASPEN_SIGN) | signBlocks.add(ASPEN_WALL_SIGN);
             } catch (UnsupportedOperationException e) {
-                // Коллекция неизменяема – создаём новую
+
                 Set<Block> newSignBlocks = new java.util.HashSet<>(signBlocks);
                 newSignBlocks.add(ASPEN_SIGN);
                 newSignBlocks.add(ASPEN_WALL_SIGN);
@@ -419,7 +427,6 @@ public class ModBlocks {
                 System.out.println("[AspenGrove] Successfully added signs to BlockEntityType.SIGN");
             }
 
-            // Подвесные таблички
             Set<Block> hangingSignBlocks = (Set<Block>) targetField.get(BlockEntityType.HANGING_SIGN);
             modified = false;
             try {
