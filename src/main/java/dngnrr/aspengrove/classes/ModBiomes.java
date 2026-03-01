@@ -18,9 +18,7 @@ public class ModBiomes {
         double proportion = 0.42;
 
         BiomePlacement.replaceOverworld(Biomes.FOREST, ASPEN_GROVE, proportion);
-
         BiomePlacement.replaceOverworld(Biomes.BIRCH_FOREST, ASPEN_GROVE, proportion);
-
         BiomePlacement.replaceOverworld(Biomes.TAIGA, ASPEN_GROVE, proportion);
     }
 }
