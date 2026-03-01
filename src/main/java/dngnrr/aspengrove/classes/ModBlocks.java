@@ -114,6 +114,7 @@ public class ModBlocks {
             "aspen_log",
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -125,6 +126,7 @@ public class ModBlocks {
             "stripped_aspen_log",
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -136,6 +138,7 @@ public class ModBlocks {
             "aspen_wood",
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -147,6 +150,7 @@ public class ModBlocks {
             "stripped_aspen_wood",
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -158,7 +162,7 @@ public class ModBlocks {
             "aspen_planks",
             Block::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.WOOD)
+                    .mapColor(ModColors.ASPEN_PLANKS)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -326,7 +330,7 @@ public class ModBlocks {
             "aspen_leaves",
             AspenLeavesBlock::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.GRASS)
+                    .mapColor(ModColors.ASPEN_LEAVES)
                     .sound(SoundType.GRASS)
                     .strength(0.2f)
                     .isSuffocating((state,world,pos) -> false)

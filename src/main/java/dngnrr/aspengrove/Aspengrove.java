@@ -9,6 +9,7 @@ public class Aspengrove implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModColors.initialize();
         ModWoodTypes.initialize();
         ModBlocks.initialize();
         ModBlocks.registerFuels();
