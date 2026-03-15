@@ -9,6 +9,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -354,6 +355,15 @@ public class ModBlocks {
                     .pushReaction(PushReaction.DESTROY)
                     .noOcclusion()
                     .ignitedByLava(),
+            true
+    );
+
+
+    public static final Block HONEYFLOWER = register(
+            "honeyflower",
+            (properties) -> new FlowerBlock(MobEffects.HEALTH_BOOST, 10, properties),
+            BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.POPPY),
             true
     );
 

@@ -31,6 +31,7 @@ public class AspengroveClient implements ClientModInitializer {
 
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_LEAVES, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_SAPLING, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.HONEYFLOWER, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_DOOR, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 
