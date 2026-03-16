@@ -367,6 +367,14 @@ public class ModBlocks {
             true
     );
 
+    public static final Block POTTED_HONEYFLOWER = register(
+            "potted_honeyflower",
+            (properties) -> new FlowerPotBlock(HONEYFLOWER, properties),
+            BlockBehaviour.Properties
+                    .ofFullCopy(Blocks.POTTED_POPPY),
+            true
+    );
+
     public static void registerFuels() {
         FuelRegistryEvents.BUILD.register((builder,context) -> {
             builder.add(ASPEN_PLANKS,300);
