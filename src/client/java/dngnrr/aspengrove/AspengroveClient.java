@@ -24,15 +24,17 @@ public class AspengroveClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ASPEN_BOAT, context ->
                 new AspenBoatRenderer(context, ModelLayers.OAK_BOAT, "aspen", false)
         );
-
         EntityRendererRegistry.register(ModEntities.ASPEN_CHEST_BOAT, context ->
                 new AspenBoatRenderer(context, ModelLayers.OAK_CHEST_BOAT, "aspen", true)
         );
 
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_LEAVES, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_SAPLING, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.POTTED_ASPEN_SAPLING, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.HONEYFLOWER, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.POTTED_HONEYFLOWER, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.ORANGE_MUSHROOM, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.POTTED_ORANGE_MUSHROOM, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_DOOR, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.ASPEN_TRAPDOOR, ChunkSectionLayer.CUTOUT);
 

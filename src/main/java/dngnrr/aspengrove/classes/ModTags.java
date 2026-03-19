@@ -13,15 +13,10 @@ public class ModTags {
         Items.setup();
     }
 
-    public static void initialize() {
-    }
-
     public static class Blocks {
         private static void setup() {
         }
-
         public static final TagKey<Block> ASPEN_LOGS = create(Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_logs"));
-
         public static TagKey<Block> create(Identifier name) {
             return TagKey.create(Registries.BLOCK, name);
         }
@@ -30,11 +25,12 @@ public class ModTags {
     public static class Items {
         private static void setup() {
         }
-
         public static final TagKey<Item> ASPEN_LOGS = create(Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_logs"));
-
         public static TagKey<Item> create(Identifier name) {
             return TagKey.create(Registries.ITEM, name);
         }
+    }
+
+    public static void initialize() {
     }
 }

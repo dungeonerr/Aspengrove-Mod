@@ -34,8 +34,10 @@ public class ModCreativeTab {
                         entries.accept(ModItems.ASPEN_CHEST_BOAT);
                         entries.accept(ModBlocks.ASPEN_LEAVES);
                         entries.accept(ModBlocks.ASPEN_SAPLING);
-                        entries.accept(ModItems.BOUQUET);
                         entries.accept(ModBlocks.HONEYFLOWER);
+                        entries.accept(ModBlocks.ORANGE_MUSHROOM);
+                        entries.accept(ModBlocks.ORANGE_MUSHROOM_BLOCK);
+                        entries.accept(ModItems.BOUQUET);
                     }).build( ));
 
     public static void initialize() {

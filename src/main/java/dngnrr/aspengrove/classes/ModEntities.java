@@ -16,7 +16,6 @@ import net.minecraft.world.item.Item;
 import java.util.function.Supplier;
 
 public class ModEntities {
-
     public static final EntityType<Boat> ASPEN_BOAT = register(
             "aspen_boat",
             EntityType.Builder.<Boat>of(boatFactory(() -> ModItems.ASPEN_BOAT), MobCategory.MISC)
@@ -35,11 +34,8 @@ public class ModEntities {
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         Identifier id = Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
-
         ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, id);
-
         EntityType<T> type = builder.build(key);
-
         return Registry.register(BuiltInRegistries.ENTITY_TYPE, id, type);
     }
 

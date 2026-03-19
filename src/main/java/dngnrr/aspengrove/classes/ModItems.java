@@ -9,11 +9,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.ComposterBlock;
 
 import java.util.function.Function;
 
 public class ModItems {
-
     public static final Item ASPEN_BOAT = register("aspen_boat",
             settings -> new BoatItem(ModEntities.ASPEN_BOAT, settings));
 
@@ -26,8 +26,11 @@ public class ModItems {
         Identifier id = Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
         Item.Properties properties = new Item.Properties().setId(key).stacksTo(1);
-
         return Registry.register(BuiltInRegistries.ITEM, id, factory.apply(properties));
+    }
+
+    public static void registerCompostables() {
+        ComposterBlock.COMPOSTABLES.put(BOUQUET.asItem(), 0.9F);
     }
 
     public static void registerFuels() {

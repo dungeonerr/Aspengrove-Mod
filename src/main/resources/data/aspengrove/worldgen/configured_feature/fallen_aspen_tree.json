@@ -18,6 +18,12 @@
                 "Name": "minecraft:brown_mushroom"
               },
               "weight": 1
+            },
+            {
+              "data": {
+                "Name": "aspengrove:orange_mushroom"
+              },
+              "weight": 2
             }
           ]
         },
