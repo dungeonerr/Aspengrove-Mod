@@ -1,7 +1,9 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    "aspengrove:aspen_hanging_sign"
+    {
+      "item": "aspengrove:aspen_hanging_sign"
+    }
   ],
   "result": [
     {

@@ -1,7 +1,9 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    "aspengrove:aspen_door"
+    {
+      "item": "aspengrove:aspen_door"
+    }
   ],
   "result": [
     {

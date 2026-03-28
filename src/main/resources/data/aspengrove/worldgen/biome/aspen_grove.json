@@ -1,23 +1,21 @@
 {
-  "attributes": {
-    "minecraft:audio/background_music": {
-      "default": {
-        "max_delay": 24000,
-        "min_delay": 12000,
-        "sound": "minecraft:music.overworld.forest"
-      }
-    },
-    "minecraft:gameplay/snow_golem_melts": true,
-    "minecraft:visual/sky_color": "#8ca8cf"
-  },
+  "has_precipitation": true,
   "temperature": 0.7,
   "downfall": 0.8,
-  "has_precipitation": true,
   "effects": {
+    "sky_color": 9218255,
+    "fog_color": 12638463,
     "water_color": 4159204,
+    "water_fog_color": 329011,
     "grass_color": 14004555,
     "foliage_color": 15121470,
-    "dry_foliage_color": 15121470
+    "dry_foliage_color": 15121470,
+    "music": {
+      "replace_current_music": false,
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "sound": "minecraft:music.overworld.forest"
+    }
   },
   "spawners": {
     "creature": [
@@ -55,65 +53,69 @@
     "ambient": [
       {
         "type": "minecraft:bat",
-        "maxCount": 8,
+        "weight": 10,
         "minCount": 8,
-        "weight": 10
+        "maxCount": 8
       }
     ],
     "underground_water_creature": [
       {
         "type": "minecraft:glow_squid",
-        "maxCount": 6,
+        "weight": 10,
         "minCount": 4,
-        "weigh": 10
+        "maxCount": 6
       }
     ],
     "monster": [
       {
         "type": "minecraft:spider",
-        "maxCount": 4,
+        "weight": 100,
         "minCount": 4,
-        "weigh": 100
+        "maxCount": 4
       },
       {
         "type": "minecraft:enderman",
-        "maxCount": 4,
+        "weight": 10,
         "minCount": 1,
-        "weigh": 10
+        "maxCount": 4
       },
       {
         "type": "minecraft:slime",
-        "maxCount": 4,
+        "weight": 100,
         "minCount": 4,
-        "weigh": 100
+        "maxCount": 4
       }
     ]
   },
   "spawn_costs": {
     "minecraft:cow": {
-      "energy_budget": 5,
-      "charge": 1
+      "energy_budget": 0.12,
+      "charge": 1.0
     },
     "minecraft:pig": {
-      "energy_budget": 5,
-      "charge": 1
+      "energy_budget": 0.12,
+      "charge": 1.0
     },
     "minecraft:fox": {
-      "energy_budget": 5,
-      "charge": 0.5
+      "energy_budget": 0.12,
+      "charge": 1.0
     },
     "minecraft:chicken": {
-      "energy_budget": 5,
-      "charge": 1
+      "energy_budget": 0.12,
+      "charge": 1.0
     },
     "minecraft:sheep": {
-      "energy_budget": 5,
-      "charge": 1
+      "energy_budget": 0.12,
+      "charge": 1.0
     }
   },
-  "carvers": [
-    "minecraft:canyon"
-  ],
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
   "features": [
     [],
     ["minecraft:lake_lava_underground", "minecraft:lake_lava_surface"],
@@ -124,6 +126,7 @@
     ["minecraft:ore_dirt", "minecraft:ore_gravel", "minecraft:ore_coal_upper", "minecraft:ore_iron_upper", "minecraft:ore_gold", "minecraft:ore_redstone", "minecraft:ore_diamond", "minecraft:ore_lapis", "minecraft:ore_copper"],
     [],
     ["minecraft:spring_water", "minecraft:spring_lava"],
-    ["aspengrove:honeyflower_placed", "aspengrove:orange_mushroom_placed", "minecraft:glow_lichen", "minecraft:patch_leaf_litter", "minecraft:patch_large_fern", "minecraft:flower_plains", "minecraft:patch_grass_taiga_2", "minecraft:patch_grass_plain", "minecraft:patch_sugar_cane"]
+    ["aspengrove:honeyflower_placed", "aspengrove:orange_mushroom_placed", "minecraft:glow_lichen", "minecraft:patch_large_fern", "minecraft:flower_plains", "minecraft:patch_grass_taiga_2", "minecraft:patch_grass_plain", "minecraft:patch_sugar_cane"],
+    []
   ]
 }
