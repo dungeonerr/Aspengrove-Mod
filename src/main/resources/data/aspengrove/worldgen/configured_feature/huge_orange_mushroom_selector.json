@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "aspengrove:huge_orange_mushroom2",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "aspengrove:huge_orange_mushroom1"
+      }
+    ]
+  }
+}

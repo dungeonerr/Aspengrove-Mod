@@ -3,8 +3,12 @@
   "category": "misc",
   "group": "chest_boat",
   "ingredients": [
-    "minecraft:chest",
-    "aspengrove:aspen_boat"
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "aspengrove:aspen_boat"
+    }
   ],
   "result": {
     "count": 1,

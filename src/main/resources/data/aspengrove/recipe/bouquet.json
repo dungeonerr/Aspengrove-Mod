@@ -3,7 +3,9 @@
   "category": "misc",
   "group": "boat",
   "key": {
-    "#": "#minecraft:small_flowers"
+    "#": {
+      "tag": "minecraft:small_flowers"
+    }
   },
   "pattern": [
     "##",

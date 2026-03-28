@@ -3,7 +3,9 @@
   "category": "redstone",
   "group": "wooden_door",
   "key": {
-    "#": "aspengrove:aspen_planks"
+    "#": {
+      "item": "aspengrove:aspen_planks"
+    }
   },
   "pattern": [
     "##",

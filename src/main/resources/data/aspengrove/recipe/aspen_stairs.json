@@ -3,7 +3,9 @@
   "category": "building",
   "group": "wooden_stairs",
   "key": {
-    "#": "aspengrove:aspen_planks"
+    "#": {
+      "item": "aspengrove:aspen_planks"
+    }
   },
   "pattern": [
     "#  ",

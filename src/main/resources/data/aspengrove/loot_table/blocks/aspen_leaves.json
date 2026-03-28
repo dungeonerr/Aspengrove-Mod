@@ -132,5 +132,5 @@
             "rolls": 1.0
         }
     ],
-    "random_sequence": "minecraft:blocks/aspen_leaves"
+    "random_sequence": "aspengrove:blocks/aspen_leaves"
 }

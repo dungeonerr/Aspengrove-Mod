@@ -1,7 +1,9 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    "aspengrove:aspen_log"
+    {
+      "item": "aspengrove:aspen_log"
+    }
   ],
   "result": [
     {
@@ -17,9 +19,11 @@
       }
     }
   ],
-  "sound": "minecraft:item.axe.strip",
+  "sound": {
+    "sound_id": "minecraft:item.axe.strip"
+  },
   "tool": {
-    "fabric:type": "farmersdelight:item_ability",
-    "action": "axe_strip"
+    "action": "axe_strip",
+    "fabric:type": "farmersdelight:item_ability"
   }
 }

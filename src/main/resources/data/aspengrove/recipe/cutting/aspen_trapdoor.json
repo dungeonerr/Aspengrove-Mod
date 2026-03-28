@@ -1,7 +1,9 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    "aspengrove:aspen_trapdoor"
+    {
+      "item": "aspengrove:aspen_trapdoor"
+    }
   ],
   "result": [
     {
@@ -12,7 +14,7 @@
     }
   ],
   "tool": {
-    "fabric:type": "farmersdelight:item_ability",
-    "action": "axe_dig"
+    "action": "axe_dig",
+    "fabric:type": "farmersdelight:item_ability"
   }
 }

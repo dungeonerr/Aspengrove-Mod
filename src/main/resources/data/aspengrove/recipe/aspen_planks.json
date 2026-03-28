@@ -3,7 +3,9 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    "#aspengrove:aspen_logs"
+    {
+      "tag": "aspengrove:aspen_logs"
+    }
   ],
   "result": {
     "count": 4,
