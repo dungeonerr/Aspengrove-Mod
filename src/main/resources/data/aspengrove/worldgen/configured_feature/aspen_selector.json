@@ -8,15 +8,19 @@
         "feature": "minecraft:super_birch_bees"
       },
       {
-        "chance": 0.31,
+        "chance": 0.06,
+        "feature": "aspengrove:fallen_aspen_tree"
+      },
+      {
+        "chance": 0.29,
         "feature": "aspengrove:aspen_1"
       },
       {
-        "chance": 0.31,
+        "chance": 0.29,
         "feature": "aspengrove:aspen_2"
       },
       {
-        "chance": 0.31,
+        "chance": 0.29,
         "feature": "aspengrove:aspen_3"
       }
     ]
