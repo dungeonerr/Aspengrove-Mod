@@ -190,7 +190,7 @@ public class ModBlocks {
     public static final Block ASPEN_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_sign"),
-            new StandingSignBlock(WoodType.OAK, BlockBehaviour.Properties
+            new StandingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .noCollission()
                     .strength(1.0F)
@@ -200,7 +200,7 @@ public class ModBlocks {
     public static final Block ASPEN_WALL_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_sign"),
-            new WallSignBlock(WoodType.OAK, BlockBehaviour.Properties
+            new WallSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .noCollission()
                     .strength(1.0F)
@@ -222,7 +222,7 @@ public class ModBlocks {
     public static final Block ASPEN_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_hanging_sign"),
-            new CeilingHangingSignBlock(WoodType.OAK, BlockBehaviour.Properties
+            new CeilingHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .noCollission()
                     .strength(1.0F)
@@ -232,7 +232,7 @@ public class ModBlocks {
     public static final Block ASPEN_WALL_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_hanging_sign"),
-            new WallHangingSignBlock(WoodType.OAK, BlockBehaviour.Properties
+            new WallHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .noCollission()
                     .strength(1.0F)
