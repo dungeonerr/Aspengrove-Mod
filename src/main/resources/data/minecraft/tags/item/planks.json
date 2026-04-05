@@ -1,6 +1,5 @@
 {
-    "replace": false,
-    "values": [
-        "aspengrove:aspen_planks"
-    ]
+  "values": [
+    "aspengrove:aspen_planks"
+  ]
 }
