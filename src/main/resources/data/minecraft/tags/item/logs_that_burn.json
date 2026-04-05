@@ -1,6 +1,5 @@
 {
-    "replace": false,
-    "values": [
-        "#aspengrove:aspen_logs"
-    ]
+  "values": [
+    "#aspengrove:aspen_logs"
+  ]
 }
