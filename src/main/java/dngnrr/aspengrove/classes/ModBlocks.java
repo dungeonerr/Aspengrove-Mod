@@ -287,7 +287,7 @@ public class ModBlocks {
             (properties) -> new FlowerPotBlock(ASPEN_SAPLING, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)
                     .mapColor(MapColor.GRASS),
-            true
+            false
     );
 
     public static final Block HONEYFLOWER = register(
@@ -303,7 +303,7 @@ public class ModBlocks {
             (properties) -> new FlowerPotBlock(HONEYFLOWER, properties),
             BlockBehaviour.Properties
                     .ofFullCopy(Blocks.POTTED_POPPY),
-            true
+            false
     );
 
     public static final Block ORANGE_MUSHROOM = register(
@@ -319,7 +319,7 @@ public class ModBlocks {
             (properties) -> new FlowerPotBlock(ORANGE_MUSHROOM, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_RED_MUSHROOM)
                     .mapColor(MapColor.COLOR_ORANGE),
-            true
+            false
     );
 
     public static final Block ORANGE_MUSHROOM_BLOCK = register(
