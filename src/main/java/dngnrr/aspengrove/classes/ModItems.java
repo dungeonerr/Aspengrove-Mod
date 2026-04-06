@@ -29,8 +29,12 @@ import java.util.List;
 
 public class ModItems {
     public static final Item ASPEN_BOAT = registerBoat("aspen_boat", ModBoatType.ASPEN, false);
+
     public static final Item ASPEN_CHEST_BOAT = registerBoat("aspen_chest_boat", ModBoatType.ASPEN, true);
-    public static final Item BOUQUET = register("bouquet", new Item(new Item.Properties()));
+
+    public static final Item BOUQUET = register("bouquet",
+            properties -> new Item(properties.stacksTo(16))
+    );
 
     private static Item registerBoat(String name, ModBoatType type, boolean chest) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
@@ -98,7 +102,7 @@ public class ModItems {
     }
 
     public static void registerCompostables() {
-        ComposterBlock.COMPOSTABLES.put(BOUQUET, 0.65F);
+        ComposterBlock.COMPOSTABLES.put(BOUQUET, 1.0F);
     }
 
     public static void initialize() {
