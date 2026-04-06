@@ -20,7 +20,9 @@ public class ModItems {
     public static final Item ASPEN_CHEST_BOAT = register("aspen_chest_boat",
             settings -> new BoatItem(ModEntities.ASPEN_CHEST_BOAT, settings));
 
-    public static final Item BOUQUET = register("bouquet", Item::new);
+    public static final Item BOUQUET = register("bouquet",
+            properties -> new Item(properties.stacksTo(16))
+    );
 
     private static Item register(String name, Function<Item.Properties, Item> factory) {
         Identifier id = Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
@@ -30,7 +32,7 @@ public class ModItems {
     }
 
     public static void registerCompostables() {
-        ComposterBlock.COMPOSTABLES.put(BOUQUET.asItem(), 0.9F);
+        ComposterBlock.COMPOSTABLES.put(BOUQUET, 1.0F);
     }
 
     public static void registerFuels() {
