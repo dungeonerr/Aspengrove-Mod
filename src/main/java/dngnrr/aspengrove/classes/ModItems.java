@@ -32,9 +32,8 @@ public class ModItems {
 
     public static final Item ASPEN_CHEST_BOAT = registerBoat("aspen_chest_boat", ModBoatType.ASPEN, true);
 
-    public static final Item BOUQUET = register("bouquet",
-            properties -> new Item(properties.stacksTo(16))
-    );
+    public static final Item BOUQUET = register("bouquet", 
+            new Item(new Item.Properties().stacksTo(16)));
 
     private static Item registerBoat(String name, ModBoatType type, boolean chest) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
