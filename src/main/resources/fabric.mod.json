@@ -10,6 +10,7 @@
 		"StarmanMine142"
 	],
 	"contact": {
+		"homepage": "${homepage_link}",
 		"sources": "${sources_link}",
 		"issues": "${issues_link}"
 	},
