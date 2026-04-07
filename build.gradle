@@ -53,6 +53,7 @@ processResources {
 			"archives_base_name":project.archives_base_name,
 			"mod_name": project.mod_name,
 			"mod_description": project.mod_description,
+			"homepage_link": project.homepage_link,
 			"sources_link": project.sources_link,
 			"issues_link": project.issues_link,
 			"mod_license": project.mod_license
