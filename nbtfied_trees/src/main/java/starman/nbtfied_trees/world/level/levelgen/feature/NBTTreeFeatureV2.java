@@ -78,7 +78,7 @@ public class NBTTreeFeatureV2 extends Feature<NBTTreeFeatureConfigV2> {
             level.setBlock(rotateInDirectionAroundOrigin(blockPos, origin, Direction.WEST), Blocks.REDSTONE_BLOCK.defaultBlockState(), 2);
             level.setBlock(rotateInDirectionAroundOrigin(blockPos, origin, Direction.EAST), Blocks.EMERALD_BLOCK.defaultBlockState(), 2);
             level.setBlock(rotateInDirectionAroundOrigin(blockPos, origin, Direction.NORTH), Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
-            level.setBlock(rotateInDirectionAroundOrigin(blockPos, origin, Direction.SOUTH), Blocks.COPPER_BLOCK.unaffected().defaultBlockState(), 2);
+            level.setBlock(rotateInDirectionAroundOrigin(blockPos, origin, Direction.SOUTH), (BlockState) Blocks.COPPER_BLOCK.asList(), 2);
         }
 
 

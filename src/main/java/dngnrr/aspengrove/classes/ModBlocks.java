@@ -17,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -30,6 +31,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
+import java.lang.reflect.ParameterizedType;
+import java.util.HashSet;
 import java.util.function.Function;
 import java.lang.reflect.Field;
 import java.util.Set;
@@ -450,70 +453,52 @@ public class ModBlocks {
         registry.add(ASPEN_WALL_HANGING_SIGN, 20, 5);
     }
 
-    private static void addToBlockEntityTypes() {
+    public static void addToBlockEntityTypes() {
         try {
-            Field targetField = null;
+            // 1. Ищем поле Set<Block> внутри класса BlockEntityType
+            Field validBlocksField = null;
             for (Field field : BlockEntityType.class.getDeclaredFields()) {
                 if (Set.class.isAssignableFrom(field.getType())) {
-                    java.lang.reflect.Type genericType = field.getGenericType();
-                    if (genericType instanceof java.lang.reflect.ParameterizedType pt) {
-                        java.lang.reflect.Type[] actualTypes = pt.getActualTypeArguments();
-                        if (actualTypes.length == 1 && actualTypes[0] == Block.class) {
-                            targetField = field;
+                    if (field.getGenericType() instanceof ParameterizedType pt) {
+                        if (pt.getActualTypeArguments()[0] == Block.class) {
+                            validBlocksField = field;
                             break;
                         }
                     }
                 }
             }
-            if (targetField == null) {
-                System.err.println("[AspenGrove] CRITICAL: Could not find Set<Block> field in BlockEntityType");
+
+            if (validBlocksField == null) {
+                System.err.println("[AspenGrove] CRITICAL: Could not find validBlocks field!");
                 return;
             }
-            targetField.setAccessible(true);
-            Set<Block> signBlocks = (Set<Block>) targetField.get(BlockEntityType.SIGN);
-            boolean modified = false;
-            try {
-                modified = signBlocks.add(ASPEN_SIGN) | signBlocks.add(ASPEN_WALL_SIGN);
-            } catch (UnsupportedOperationException e) {
 
-                Set<Block> newSignBlocks = new java.util.HashSet<>(signBlocks);
-                newSignBlocks.add(ASPEN_SIGN);
-                newSignBlocks.add(ASPEN_WALL_SIGN);
-                targetField.set(BlockEntityType.SIGN, newSignBlocks);
-                modified = true;
-            }
-            if (modified) {
-                System.out.println("[AspenGrove] Successfully added signs to BlockEntityType.SIGN");
-            }
-            Set<Block> hangingSignBlocks = (Set<Block>) targetField.get(BlockEntityType.HANGING_SIGN);
-            modified = false;
-            try {
-                modified = hangingSignBlocks.add(ASPEN_HANGING_SIGN) | hangingSignBlocks.add(ASPEN_WALL_HANGING_SIGN);
-            } catch (UnsupportedOperationException e) {
-                Set<Block> newHangingSignBlocks = new java.util.HashSet<>(hangingSignBlocks);
-                newHangingSignBlocks.add(ASPEN_HANGING_SIGN);
-                newHangingSignBlocks.add(ASPEN_WALL_HANGING_SIGN);
-                targetField.set(BlockEntityType.HANGING_SIGN, newHangingSignBlocks);
-                modified = true;
-            }
-            if (modified) {
-                System.out.println("[AspenGrove] Successfully added hanging signs to BlockEntityType.HANGING_SIGN");
-            }
-            Set<Block> shelfBlocks = (Set<Block>) targetField.get(BlockEntityType.SHELF);
-            modified = false;
-            try {
-                modified = shelfBlocks.add(ASPEN_SHELF);
-            } catch (UnsupportedOperationException e) {
-                Set<Block> newShelfBlocks = new java.util.HashSet<>(shelfBlocks);
-                newShelfBlocks.add(ASPEN_SHELF);
-                targetField.set(BlockEntityType.SHELF, newShelfBlocks);
-                modified = true;
-            }
-            if (modified) {
-                System.out.println("[AspenGrove] Successfully added shelves to BlockEntityType.SHELF");
-            }
+            validBlocksField.setAccessible(true);
+
+            modifySet(validBlocksField, BlockEntityTypes.SIGN,
+                    ModBlocks.ASPEN_SIGN, ModBlocks.ASPEN_WALL_SIGN);
+
+            modifySet(validBlocksField, BlockEntityTypes.HANGING_SIGN,
+                    ModBlocks.ASPEN_HANGING_SIGN, ModBlocks.ASPEN_WALL_HANGING_SIGN);
+
+            modifySet(validBlocksField, BlockEntityTypes.SHELF, ModBlocks.ASPEN_SHELF);
+
+            System.out.println("[AspenGrove] Successfully injected blocks into vanilla BlockEntityTypes.");
+
         } catch (Exception e) {
+            System.err.println("[AspenGrove] Failed to inject blocks via reflection!");
             e.printStackTrace();
         }
+    }
+
+    private static void modifySet(Field field, BlockEntityType<?> targetType, Block... blocksToAdd) throws IllegalAccessException {
+        Set<Block> originalSet = (Set<Block>) field.get(targetType);
+
+        Set<Block> newSet = new HashSet<>(originalSet);
+        for (Block block : blocksToAdd) {
+            newSet.add(block);
+        }
+
+        field.set(targetType, newSet);
     }
 }
