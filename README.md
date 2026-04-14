@@ -10,7 +10,7 @@ Next, unzip the ZIP file.
 And follow the steps described in the [Fabric Documentation](https://docs.fabricmc.net/develop/getting-started/building-a-mod).
 
 Used libraries:<br>
-[Oh The Trees You'll Grow](https://github.com/CorgiTaco-MC/Oh-The-Trees-Youll-Grow): custom trees<br>
+NBTfied Trees, based on [Oh The Trees You'll Grow](https://github.com/CorgiTaco-MC/Oh-The-Trees-Youll-Grow): custom trees<br>
 [Biolith](https://github.com/TerraformersMC/Biolith): biome placement in world<br>
 
 <details>
