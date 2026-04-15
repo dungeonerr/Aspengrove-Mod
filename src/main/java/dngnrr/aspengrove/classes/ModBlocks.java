@@ -453,52 +453,70 @@ public class ModBlocks {
         registry.add(ASPEN_WALL_HANGING_SIGN, 20, 5);
     }
 
-    public static void addToBlockEntityTypes() {
+    private static void addToBlockEntityTypes() {
         try {
-            // 1. Ищем поле Set<Block> внутри класса BlockEntityType
-            Field validBlocksField = null;
+            Field targetField = null;
             for (Field field : BlockEntityType.class.getDeclaredFields()) {
                 if (Set.class.isAssignableFrom(field.getType())) {
-                    if (field.getGenericType() instanceof ParameterizedType pt) {
-                        if (pt.getActualTypeArguments()[0] == Block.class) {
-                            validBlocksField = field;
+                    java.lang.reflect.Type genericType = field.getGenericType();
+                    if (genericType instanceof java.lang.reflect.ParameterizedType pt) {
+                        java.lang.reflect.Type[] actualTypes = pt.getActualTypeArguments();
+                        if (actualTypes.length == 1 && actualTypes[0] == Block.class) {
+                            targetField = field;
                             break;
                         }
                     }
                 }
             }
-
-            if (validBlocksField == null) {
-                System.err.println("[AspenGrove] CRITICAL: Could not find validBlocks field!");
+            if (targetField == null) {
+                System.err.println("[AspenGrove] CRITICAL: Could not find Set<Block> field in BlockEntityType");
                 return;
             }
+            targetField.setAccessible(true);
+            Set<Block> signBlocks = (Set<Block>) targetField.get(BlockEntityTypes.SIGN);
+            boolean modified = false;
+            try {
+                modified = signBlocks.add(ASPEN_SIGN) | signBlocks.add(ASPEN_WALL_SIGN);
+            } catch (UnsupportedOperationException e) {
 
-            validBlocksField.setAccessible(true);
-
-            modifySet(validBlocksField, BlockEntityTypes.SIGN,
-                    ModBlocks.ASPEN_SIGN, ModBlocks.ASPEN_WALL_SIGN);
-
-            modifySet(validBlocksField, BlockEntityTypes.HANGING_SIGN,
-                    ModBlocks.ASPEN_HANGING_SIGN, ModBlocks.ASPEN_WALL_HANGING_SIGN);
-
-            modifySet(validBlocksField, BlockEntityTypes.SHELF, ModBlocks.ASPEN_SHELF);
-
-            System.out.println("[AspenGrove] Successfully injected blocks into vanilla BlockEntityTypes.");
-
+                Set<Block> newSignBlocks = new java.util.HashSet<>(signBlocks);
+                newSignBlocks.add(ASPEN_SIGN);
+                newSignBlocks.add(ASPEN_WALL_SIGN);
+                targetField.set(BlockEntityTypes.SIGN, newSignBlocks);
+                modified = true;
+            }
+            if (modified) {
+                System.out.println("[AspenGrove] Successfully added signs to BlockEntityType.SIGN");
+            }
+            Set<Block> hangingSignBlocks = (Set<Block>) targetField.get(BlockEntityTypes.HANGING_SIGN);
+            modified = false;
+            try {
+                modified = hangingSignBlocks.add(ASPEN_HANGING_SIGN) | hangingSignBlocks.add(ASPEN_WALL_HANGING_SIGN);
+            } catch (UnsupportedOperationException e) {
+                Set<Block> newHangingSignBlocks = new java.util.HashSet<>(hangingSignBlocks);
+                newHangingSignBlocks.add(ASPEN_HANGING_SIGN);
+                newHangingSignBlocks.add(ASPEN_WALL_HANGING_SIGN);
+                targetField.set(BlockEntityTypes.HANGING_SIGN, newHangingSignBlocks);
+                modified = true;
+            }
+            if (modified) {
+                System.out.println("[AspenGrove] Successfully added hanging signs to BlockEntityType.HANGING_SIGN");
+            }
+            Set<Block> shelfBlocks = (Set<Block>) targetField.get(BlockEntityTypes.SHELF);
+            modified = false;
+            try {
+                modified = shelfBlocks.add(ASPEN_SHELF);
+            } catch (UnsupportedOperationException e) {
+                Set<Block> newShelfBlocks = new java.util.HashSet<>(shelfBlocks);
+                newShelfBlocks.add(ASPEN_SHELF);
+                targetField.set(BlockEntityTypes.SHELF, newShelfBlocks);
+                modified = true;
+            }
+            if (modified) {
+                System.out.println("[AspenGrove] Successfully added shelves to BlockEntityType.SHELF");
+            }
         } catch (Exception e) {
-            System.err.println("[AspenGrove] Failed to inject blocks via reflection!");
             e.printStackTrace();
         }
-    }
-
-    private static void modifySet(Field field, BlockEntityType<?> targetType, Block... blocksToAdd) throws IllegalAccessException {
-        Set<Block> originalSet = (Set<Block>) field.get(targetType);
-
-        Set<Block> newSet = new HashSet<>(originalSet);
-        for (Block block : blocksToAdd) {
-            newSet.add(block);
-        }
-
-        field.set(targetType, newSet);
     }
 }
