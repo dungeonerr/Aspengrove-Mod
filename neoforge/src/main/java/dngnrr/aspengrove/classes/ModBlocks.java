@@ -344,7 +344,15 @@ public class ModBlocks {
     }
 
     private static void addToBlockEntityTypes() {
+        try {
+            Field validBlocksField = BlockEntityType.class.getDeclaredField("validBlocks");
+            validBlocksField.setAccessible(true);
 
+            injectToSet(validBlocksField, BlockEntityType.SIGN, ASPEN_SIGN, ASPEN_WALL_SIGN);
+            injectToSet(validBlocksField, BlockEntityType.HANGING_SIGN, ASPEN_HANGING_SIGN, ASPEN_WALL_HANGING_SIGN);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Aspengrove.LOGGER.error("Failed to inject mod blocks into BlockEntityTypes!", e);
+        }
     }
 
     private static void injectToSet(Field field, BlockEntityType<?> type, Block... blocks) throws IllegalAccessException {
@@ -356,8 +364,5 @@ public class ModBlocks {
             for (Block b : blocks) newSet.add(b);
             field.set(type, newSet);
         }
-    }
-
-    public static void initialize() {
     }
 }

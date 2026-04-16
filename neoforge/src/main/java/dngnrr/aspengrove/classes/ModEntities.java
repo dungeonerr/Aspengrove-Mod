@@ -30,5 +30,4 @@ public class ModEntities {
         return Registry.register(BuiltInRegistries.ENTITY_TYPE, id, builder.build(id.toString()));
     }
 
-    public static void initialize() {}
 }

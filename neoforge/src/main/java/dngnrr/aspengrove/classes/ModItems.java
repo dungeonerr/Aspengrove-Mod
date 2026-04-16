@@ -94,6 +94,4 @@ public class ModItems {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID, name);
         return Registry.register(BuiltInRegistries.ITEM, id, item);
     }
-
-    public static void initialize() {}
 }
