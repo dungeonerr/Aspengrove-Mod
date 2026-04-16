@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = "aspengrove"
+}
+
+version = mod_version_common
+
+def resourceTargets = [
+        "mod_version_common": mod_version_common
+]

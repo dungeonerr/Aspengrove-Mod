@@ -1,0 +1,64 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+base {
+    archivesName = "aspengrove"
+}
+
+version = mod_version_neoforge
+
+def resourceTargets = [
+        "mod_id": mod_id,
+        "mod_name": mod_name,
+        "mod_version": mod_version,
+        "mod_description": mod_description,
+        "mod_license": mod_license,
+        "neoforge_loader_version": neoforge_loader_version,
+        "minecraft_version": minecraft_version,
+        "sources_link": sources_link,
+        "issues_link": issues_link,
+        "homepage_link": homepage_link,
+        "neoforge_loader_version_range": neoforge_loader_version_range
+]
+
+processResources {
+    inputs.properties(resourceTargets)
+
+    from project(":common").sourceSets.main.resources
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand resourceTargets
+    }
+}
+
+neoForge {
+    version = project.neoforge_loader_version
+
+    accessTransformers {
+        from file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
+
+    runs {
+        client {
+            client()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(project(":common").sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    implementation project(":common")
+
+    implementation "com.terraformersmc:biolith-neoforge:${biolith_version}"
+    implementation "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version_neoforge}"
+
+    jarJar "com.terraformersmc:biolith-neoforge:${biolith_version}"
+    jarJar "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version_neoforge}"
+}

@@ -1,0 +1,54 @@
+{
+  "values": {
+    "aspengrove:boat": {
+      "burn_time": 1200
+    },
+    "aspengrove:chest_boat": {
+      "burn_time": 1200
+    },
+    "aspengrove:aspen_planks": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_log": {
+      "burn_time": 300
+    },
+    "aspengrove:stripped_aspen_log": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_wood": {
+      "burn_time": 300
+    },
+    "aspengrove:stripped_aspen_wood": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_fence": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_fence_gate": {
+      "burn_time": 300 },
+    "aspengrove:aspen_stairs": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_button": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_pressure_plate": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_door": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_trapdoor": {
+      "burn_time": 300
+    },
+    "aspengrove:aspen_sign": {
+      "burn_time": 200
+    },
+    "aspengrove:aspen_hanging_sign": {
+      "burn_time": 200
+    },
+    "aspengrove:aspen_slab": {
+      "burn_time": 150
+    }
+  }
+}

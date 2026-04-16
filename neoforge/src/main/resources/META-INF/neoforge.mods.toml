@@ -1,0 +1,45 @@
+modLoader = "javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+description = "${mod_description}"
+authors = "Dungeonerr, StarmanMine142"
+logoFile = "assets/aspengrove/icon.png"
+
+displayURL = "${homepage_link}"
+issueTrackerURL = "${issues_link}"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${minecraft_version},]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_loader_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "ohthetreesyoullgrow"
+type = "required"
+versionRange = "*"
+ordering = "BEFORE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "biolith"
+type = "required"
+versionRange = "*"
+ordering = "BEFORE"
+side = "BOTH"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"

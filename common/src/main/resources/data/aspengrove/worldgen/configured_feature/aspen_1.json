@@ -1,0 +1,46 @@
+{
+  "type": "ohthetreesyoullgrow:tree_from_nbt_v1",
+  "config": {
+    "base_location": "aspengrove:features/trees/aspen/aspen_trunk1",
+    "canopy_location": "aspengrove:features/trees/aspen/aspen_canopy1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "minecraft:dirt"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "height": {
+      "type": "minecraft:uniform",
+        "max_inclusive": 10.0,
+        "min_inclusive": 5.0
+    },
+    "leaves_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aspengrove:aspen_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "leaves_target": [
+      "aspengrove:aspen_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aspengrove:aspen_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "aspengrove:aspen_log"
+    ],
+    "place_from_nbt": []
+  }
+}
