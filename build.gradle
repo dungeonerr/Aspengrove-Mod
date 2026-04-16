@@ -1,6 +1,6 @@
 subprojects {
-    apply plugin: 'java-library'
     apply plugin: 'idea'
+    apply plugin: 'java-library'
 
     group = 'dngnrr.aspengrove'
 
