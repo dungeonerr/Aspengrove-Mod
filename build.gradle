@@ -1,98 +1,23 @@
-plugins {
-	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
-	id 'maven-publish'
-}
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'idea'
 
-version = project.mod_version
-group = project.maven_group
+    group = 'dngnrr.aspengrove'
 
-base {
-	archivesName = project.archives_base_name
-}
+    repositories {
+        mavenCentral()
+        maven { name = "Modrinth"; url = "https://api.modrinth.com/maven" }
+        maven { name = "TerraformersMC"; url = "https://maven.terraformersmc.com/" }
+        maven { name = "NeoForged"; url = "https://maven.neoforged.net/releases/" }
+    }
 
-repositories {
-	maven {
-		name = "Modrinth"
-		url = "https://api.modrinth.com/maven"
-	}
-	maven {
-		url = "https://maven.terraformersmc.com/releases/"
-	}
-}
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = 21
+    }
 
-loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"aspengrove" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-	accessWidenerPath = file("src/main/resources/aspengrove.accesswidener")
-}
-
-dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	modImplementation "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version}"
-	modImplementation "com.terraformersmc:biolith-fabric:${biolith_version}"
-
-	include "com.terraformersmc:biolith-fabric:${biolith_version}"
-	include "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version}"
-}
-
-processResources {
-	def resourceTargets = [
-			"version": project.version,
-			"minecraft_version": project.minecraft_version,
-			"loader_version": project.loader_version,
-			"java_version": project.java_version,
-			"archives_base_name":project.archives_base_name,
-			"mod_name": project.mod_name,
-			"mod_description": project.mod_description,
-			"homepage_link": project.homepage_link,
-			"sources_link": project.sources_link,
-			"issues_link": project.issues_link,
-			"mod_license": project.mod_license
-	]
-
-	inputs.properties(resourceTargets)
-
-	filesMatching("fabric.mod.json") {
-		expand resourceTargets
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
-}
-
-java {
-	withSourcesJar()
-
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
-}
-
-jar {
-	inputs.property "archivesName", project.base.archivesName
-
-	from("LICENSE") {
-		rename { "${it}_${inputs.properties.archivesName}"}
-	}
-}
-
-publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
-
-	repositories {
-	}
+    java {
+        toolchain.languageVersion = JavaLanguageVersion.of(21)
+        withSourcesJar()
+    }
 }
