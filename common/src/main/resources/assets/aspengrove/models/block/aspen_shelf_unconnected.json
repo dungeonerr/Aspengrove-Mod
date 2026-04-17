@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+    "all": "aspengrove:block/aspen_shelf",
+    "particle": "aspengrove:block/stripped_aspen_log"
+  }
+}

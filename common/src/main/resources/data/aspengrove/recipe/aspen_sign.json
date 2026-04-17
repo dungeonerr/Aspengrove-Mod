@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "aspengrove:aspen_planks"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "#": "aspengrove:aspen_planks",
+    "X": "minecraft:stick"
   },
   "pattern": [
     "###",

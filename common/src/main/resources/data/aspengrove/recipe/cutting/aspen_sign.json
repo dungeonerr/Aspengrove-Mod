@@ -1,9 +1,7 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "item": "aspengrove:aspen_sign"
-    }
+    "aspengrove:aspen_sign"
   ],
   "result": [
     {
@@ -14,7 +12,7 @@
     }
   ],
   "tool": {
-    "action": "axe_dig",
-    "fabric:type": "farmersdelight:item_ability"
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
   }
 }

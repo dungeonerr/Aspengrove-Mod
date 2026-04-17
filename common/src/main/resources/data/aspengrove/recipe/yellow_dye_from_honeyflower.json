@@ -3,12 +3,9 @@
   "category": "misc",
   "group": "yellow_dye",
   "ingredients": [
-    {
-      "item": "aspengrove:honeyflower"
-    }
+    "aspengrove:honeyflower"
   ],
   "result": {
-    "count": 1,
     "id": "minecraft:yellow_dye"
   }
 }

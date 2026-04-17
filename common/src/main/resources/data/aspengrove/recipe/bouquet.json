@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "misc",
   "key": {
-    "#": {
-      "tag": "minecraft:small_flowers"
-    }
+    "#": "#minecraft:small_flowers"
   },
   "pattern": [
     "##",

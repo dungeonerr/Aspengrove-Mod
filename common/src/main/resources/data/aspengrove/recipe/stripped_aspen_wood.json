@@ -3,9 +3,7 @@
   "category": "building",
   "group": "bark",
   "key": {
-    "#": {
-      "item": "aspengrove:stripped_aspen_log"
-    }
+    "#": "aspengrove:stripped_aspen_log"
   },
   "pattern": [
     "##",
