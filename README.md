@@ -7,7 +7,7 @@ Download the ZIP by clicking the green button `Code` -> `Download ZIP`
 
 Next, unzip the ZIP file.
 
-Open folder on terminal (Command Line, PowerShell etc.) and run `./gradlew build`.
+Open folder in terminal (Command Line, PowerShell etc.) and run `./gradlew build`.
 
 Used libraries:<br>
 [Oh The Trees You'll Grow](https://github.com/CorgiTaco-MC/Oh-The-Trees-Youll-Grow): custom trees<br>
