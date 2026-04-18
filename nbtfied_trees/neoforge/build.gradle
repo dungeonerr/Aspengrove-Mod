@@ -1,0 +1,49 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+base {
+    archivesName = "nbtfied_trees"
+}
+
+version = project.lib_version_neoforge
+group = project.lib_group
+
+processResources {
+    var replaceProperties = [
+            lib_id: lib_id,
+            lib_version: lib_version,
+            lib_name: lib_name,
+            lib_description: lib_description,
+            mod_license: mod_license,
+            neoforge_loader_version_range: neoforge_loader_version_range,
+            minecraft_version: minecraft_version
+    ]
+
+    from project(":nbtfied_trees:common").sourceSets.main.resources
+
+    inputs.properties replaceProperties
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand replaceProperties
+    }
+}
+
+neoForge {
+    version = project.neoforge_loader_version
+
+    accessTransformers {
+        from file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
+
+    mods {
+        "${project.lib_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(project(":nbtfied_trees:common").sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    implementation project(":nbtfied_trees:common")
+}

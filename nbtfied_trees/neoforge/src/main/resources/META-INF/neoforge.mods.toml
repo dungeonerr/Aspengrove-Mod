@@ -1,0 +1,41 @@
+license = "${mod_license}"
+
+[[mods]]
+modId = "${lib_id}"
+version = "${lib_version}"
+displayName = "${lib_name}"
+description = '''
+${lib_description}
+'''
+authors = "Dungeonerr, StarmanMine142"
+logoFile = "assets/nbtfied_trees/icon.png"
+
+[[mods.badges]]
+text = "Library"
+color = "0xFFD700"
+
+[[dependencies.${lib_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neoforge_loader_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${lib_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${minecraft_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${lib_id}]]
+modId = "aspengrove"
+type = "required"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "nbtfied_trees.mixins.json"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"

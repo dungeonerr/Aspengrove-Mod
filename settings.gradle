@@ -9,3 +9,4 @@ pluginManagement {
 rootProject.name = 'aspengrove'
 
 include 'common', 'fabric', 'neoforge'
+include 'nbtfied_trees:common', 'nbtfied_trees:fabric', 'nbtfied_trees:neoforge'

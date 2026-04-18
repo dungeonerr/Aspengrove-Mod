@@ -1,0 +1,38 @@
+{
+    "schemaVersion": 1,
+    "id": "${lib_id}",
+    "version": "${lib_version}",
+    "name": "${lib_name}",
+    "description": "${lib_description}",
+    "accessWidener": "nbtfied_trees.accesswidener",
+    "authors": [
+        "Dungeonerr",
+        "StarmanMine142"
+    ],
+    "license": "${mod_license}",
+    "icon": "assets/nbtfied_trees/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "starman.nbtfied_trees.NBTfiedTrees"
+        ]
+    },
+    "mixins": [
+        "nbtfied_trees.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${min_fabric_loader_version}",
+        "minecraft": "~${min_minecraft_version}",
+        "java": "${java_version}",
+        "fabric-api": "*"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "${mod_id}",
+            "badges": [
+                "library"
+            ]
+        }
+    }
+}
+  

@@ -1,7 +1,7 @@
 package dngnrr.aspengrove.classes;
 
 import dngnrr.aspengrove.Aspengrove;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -11,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class ModCreativeTab {
     public static final CreativeModeTab ASPENGROVE_TAB = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"aspengrove"),
-            FabricItemGroup.builder( ).title(Component.translatable("itemGroup.aspengrove"))
+            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,"assets/aspengrove"),
+            FabricCreativeModeTab.builder( ).title(Component.translatable("itemGroup.aspengrove"))
                     .icon(() -> new ItemStack(ModBlocks.ASPEN_LOG)).displayItems((displayContext,entries) -> {
                         entries.accept(ModBlocks.ASPEN_LOG);
                         entries.accept(ModBlocks.ASPEN_WOOD);

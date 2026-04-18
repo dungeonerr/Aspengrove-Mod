@@ -1,7 +1,8 @@
 package dngnrr.aspengrove.classes;
 
 import com.mojang.serialization.MapCodec;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import dngnrr.aspengrove.Aspengrove;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -17,7 +18,6 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import dngnrr.aspengrove.Aspengrove;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -28,6 +28,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.resources.Identifier;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
 import java.util.function.Function;
 import java.lang.reflect.Field;
@@ -335,7 +336,7 @@ public class ModBlocks {
 
     public static final Block ASPEN_SAPLING = register(
             "aspen_sapling",
-            (settings) -> new SaplingBlock(ModTreeGrowers.ASPEN,settings),
+            (settings) -> new SaplingBlock(ModTreeGrowers.ASPEN, settings),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)
                     .noCollision()
@@ -374,7 +375,7 @@ public class ModBlocks {
 
     public static final Block ORANGE_MUSHROOM = register(
             "orange_mushroom",
-            (properties) -> new MushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM, properties),
+            (properties) -> new ModMushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)
                     .mapColor(MapColor.COLOR_ORANGE),
             true
@@ -393,7 +394,7 @@ public class ModBlocks {
             HugeMushroomBlock::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
                     .mapColor(MapColor.COLOR_ORANGE),
-                    true
+            true
     );
 
     public static void registerCompostables() {
@@ -405,7 +406,7 @@ public class ModBlocks {
     }
 
     public static void registerFuels() {
-        FuelRegistryEvents.BUILD.register((builder,context) -> {
+        FuelValueEvents.BUILD.register((builder,context) -> {
             builder.add(ASPEN_PLANKS,300);
             builder.add(ASPEN_LOG,300);
             builder.add(STRIPPED_ASPEN_LOG,300);
@@ -431,22 +432,22 @@ public class ModBlocks {
     }
 
     public static void registerFlammables() {
-        FireBlock fireBlock = (FireBlock) Blocks.FIRE;
-        fireBlock.setFlammable(ASPEN_LOG, 5, 5);
-        fireBlock.setFlammable(STRIPPED_ASPEN_LOG, 5, 5);
-        fireBlock.setFlammable(ASPEN_WOOD, 5, 5);
-        fireBlock.setFlammable(STRIPPED_ASPEN_WOOD, 5, 5);
-        fireBlock.setFlammable(ASPEN_PLANKS, 5, 20);
-        fireBlock.setFlammable(ASPEN_SLAB, 5, 20);
-        fireBlock.setFlammable(ASPEN_STAIRS, 5, 20);
-        fireBlock.setFlammable(ASPEN_FENCE, 5, 20);
-        fireBlock.setFlammable(ASPEN_FENCE_GATE, 5, 20);
-        fireBlock.setFlammable(ASPEN_LEAVES, 30, 60);
-        fireBlock.setFlammable(ASPEN_SAPLING, 30, 60);
-        fireBlock.setFlammable(ASPEN_SIGN, 20, 5);
-        fireBlock.setFlammable(ASPEN_WALL_SIGN, 20, 5);
-        fireBlock.setFlammable(ASPEN_HANGING_SIGN, 20, 5);
-        fireBlock.setFlammable(ASPEN_WALL_HANGING_SIGN, 20, 5);
+        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+        registry.add(ASPEN_LOG, 5, 5);
+        registry.add(STRIPPED_ASPEN_LOG, 5, 5);
+        registry.add(ASPEN_WOOD, 5, 5);
+        registry.add(STRIPPED_ASPEN_WOOD, 5, 5);
+        registry.add(ASPEN_PLANKS, 5, 20);
+        registry.add(ASPEN_SLAB, 5, 20);
+        registry.add(ASPEN_STAIRS, 5, 20);
+        registry.add(ASPEN_FENCE, 5, 20);
+        registry.add(ASPEN_FENCE_GATE, 5, 20);
+        registry.add(ASPEN_LEAVES, 30, 60);
+        registry.add(ASPEN_SAPLING, 30, 60);
+        registry.add(ASPEN_SIGN, 20, 5);
+        registry.add(ASPEN_WALL_SIGN, 20, 5);
+        registry.add(ASPEN_HANGING_SIGN, 20, 5);
+        registry.add(ASPEN_WALL_HANGING_SIGN, 20, 5);
     }
 
     private static void addToBlockEntityTypes() {

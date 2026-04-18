@@ -10,6 +10,5 @@ public class ModWoodTypes {
     public static final WoodType ASPEN = WoodType.register(new WoodType("aspengrove:aspen", ASPEN_BLOCK_SET_TYPE));
 
     public static void initialize() {
-        LOGGER.info("Aspen Grove Wood Types Initialized!");
     }
 }

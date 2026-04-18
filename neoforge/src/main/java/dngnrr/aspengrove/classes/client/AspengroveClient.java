@@ -1,14 +1,11 @@
 package dngnrr.aspengrove.classes.client;
 
 import dngnrr.aspengrove.Aspengrove;
-import dngnrr.aspengrove.classes.ModBlocks;
 import dngnrr.aspengrove.classes.ModEntities;
 import dngnrr.aspengrove.classes.ModWoodTypes;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -42,15 +39,5 @@ public class AspengroveClient {
 
     public void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> Sheets.addWoodType(ModWoodTypes.ASPEN));
-
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASPEN_LEAVES.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASPEN_SAPLING.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_ASPEN_SAPLING.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.HONEYFLOWER.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_HONEYFLOWER.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ORANGE_MUSHROOM.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_ORANGE_MUSHROOM.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASPEN_DOOR.get(), ChunkSectionLayer.CUTOUT);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ASPEN_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
     }
 }

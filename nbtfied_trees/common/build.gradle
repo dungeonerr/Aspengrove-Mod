@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = "nbtfied_trees"
+}
+
+version = lib_version_common
+
+def resourceTargets = [
+        "lib_version_common": lib_version_common
+]

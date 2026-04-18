@@ -1,0 +1,12 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = "nbtfied_trees"
+}
+
+    dependencies {
+        compileOnly "org.spongepowered:mixin:0.8.5"
+        compileOnly "io.github.llamalad7:mixinextras-common:0.5.3"
+}

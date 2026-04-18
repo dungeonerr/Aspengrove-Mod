@@ -1,7 +1,7 @@
 package dngnrr.aspengrove.classes;
 
 import dngnrr.aspengrove.Aspengrove;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -36,7 +36,7 @@ public class ModItems {
     }
 
     public static void registerFuels() {
-        FuelRegistryEvents.BUILD.register((builder, context) -> {
+        FuelValueEvents.BUILD.register((builder,context) -> {
             builder.add(ASPEN_BOAT, 1200);
             builder.add(ASPEN_CHEST_BOAT, 1200);
         });

@@ -2,8 +2,6 @@ package dngnrr.aspengrove;
 
 import dngnrr.aspengrove.classes.*;
 import dngnrr.aspengrove.classes.client.AspengroveClient;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.neoforged.api.distmarker.Dist;
@@ -13,9 +11,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Mod(Aspengrove.MOD_ID)
 public class Aspengrove {
@@ -41,10 +36,9 @@ public class Aspengrove {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            registerFlammability();
-            registerStrippables();
-            ModBlocks.addToBlockEntityTypes();
             ModBiomes.registerBiomes();
+            registerFlammability();
+            ModBlocks.addToBlockEntityTypes();
             LOGGER.info("Aspen Grove Initialized!");
         });
     }
@@ -61,12 +55,5 @@ public class Aspengrove {
         fire.setFlammable(ModBlocks.ASPEN_FENCE.get(), 5, 20);
         fire.setFlammable(ModBlocks.ASPEN_FENCE_GATE.get(), 5, 20);
         fire.setFlammable(ModBlocks.ASPEN_LEAVES.get(), 30, 60);
-    }
-
-    private void registerStrippables() {
-        Map<Block, Block> strippables = new HashMap<>(AxeItem.STRIPPABLES);
-        strippables.put(ModBlocks.ASPEN_LOG.get(), ModBlocks.STRIPPED_ASPEN_LOG.get());
-        strippables.put(ModBlocks.ASPEN_WOOD.get(), ModBlocks.STRIPPED_ASPEN_WOOD.get());
-        AxeItem.STRIPPABLES = strippables;
     }
 }

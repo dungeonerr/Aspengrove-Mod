@@ -1,0 +1,54 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+base {
+    archivesName = "nbtfied_trees"
+}
+
+version = project.lib_version_fabric
+group = project.lib_group
+
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        "${project.lib_id}" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+    def aw = project(":nbtfied_trees:fabric").file("src/main/resources/nbtfied_trees.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath = aw
+    }
+}
+
+processResources {
+    var replaceProperties = [
+            lib_id: lib_id,
+            lib_version: lib_version,
+            lib_name: lib_name,
+            lib_description: lib_description,
+            mod_license: mod_license,
+            min_fabric_loader_version: min_fabric_loader_version,
+            min_minecraft_version: min_minecraft_version,
+            java_version: java_version,
+            mod_id: mod_id
+    ]
+
+    from project(":nbtfied_trees:common").sourceSets.main.resources
+
+    inputs.properties replaceProperties
+
+    filesMatching("fabric.mod.json") {
+        expand replaceProperties
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+
+    implementation project(":nbtfied_trees:common")
+}

@@ -1,0 +1,10 @@
+{
+  "values": {
+    "aspengrove:aspen_wood": {
+      "stripped_block": "aspengrove:stripped_aspen_wood"
+    },
+    "aspengrove:aspen_log": {
+      "stripped_block": "aspengrove:stripped_aspen_log"
+    }
+  }
+}

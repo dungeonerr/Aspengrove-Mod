@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "starman.nbtfied_trees.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "MixinServerLevel",
+    "chunk.MixinChunkAccess",
+    "chunk.MixinChunkSerializer",
+    "chunk.MixinLevelChunk"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,202 @@
+package starman.nbtfied_trees.world.level.levelgen.feature.settings;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
+
+public record NBTTreeFeatureConfigV2(Identifier baseLocation,Identifier canopyLocation,
+                                     IntProvider height,
+                                     BlockStateProvider logProvider,List<BlockStateProvider> leavesProvider,
+                                     Set<Block> logTarget,List<Block> leavesTarget,
+                                     BlockPredicate growableOn,BlockPredicate leavesPlacementFilter,
+                                     BlockPredicate logsPlacementFilter,
+                                     int maxLogDepth,
+                                     List<TreeDecorator> treeDecorators,
+                                     Map<Block, BlockStateProvider> replaceFromNBT,
+                                     boolean randomRotation,
+                                     Orientation orientation) implements FeatureConfiguration {
+
+    public static final Codec<Set<Block>> BLOCK_SET_CODEC = Codec.list(BuiltInRegistries.BLOCK.byNameCodec()).xmap(ObjectOpenHashSet::new, ArrayList::new);
+
+    public static final Codec<NBTTreeFeatureConfigV2> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(
+                    Identifier.CODEC.fieldOf("base_location").forGetter(NBTTreeFeatureConfigV2::baseLocation),
+                    Identifier.CODEC.fieldOf("canopy_location").forGetter(NBTTreeFeatureConfigV2::canopyLocation),
+                    IntProviders.CODEC.fieldOf("height").forGetter(NBTTreeFeatureConfigV2::height),
+                    BlockStateProvider.CODEC.fieldOf("log_provider").forGetter(NBTTreeFeatureConfigV2::logProvider),
+                    BlockStateProvider.CODEC.listOf().fieldOf("leaves_provider").forGetter(NBTTreeFeatureConfigV2::leavesProvider),
+                    BLOCK_SET_CODEC.fieldOf("log_target").forGetter(NBTTreeFeatureConfigV2::logTarget),
+                    BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("leaves_target").forGetter(NBTTreeFeatureConfigV2::leavesTarget),
+                    BlockPredicate.CODEC.fieldOf("can_grow_on_filter").forGetter(NBTTreeFeatureConfigV2::growableOn),
+                    BlockPredicate.CODEC.fieldOf("can_leaves_place_filter").forGetter(NBTTreeFeatureConfigV2::leavesPlacementFilter),
+                    BlockPredicate.CODEC.optionalFieldOf("can_logs_place_filter", BlockPredicate.replaceable()).forGetter(NBTTreeFeatureConfigV2::logsPlacementFilter),
+                    Codec.INT.optionalFieldOf("max_log_depth", 5).forGetter(NBTTreeFeatureConfigV2::maxLogDepth),
+                    TreeDecorator.CODEC.listOf().optionalFieldOf("decorators", new ArrayList<>()).forGetter(NBTTreeFeatureConfigV2::treeDecorators),
+                    Codec.unboundedMap(BuiltInRegistries.BLOCK.byNameCodec(), BlockStateProvider.CODEC).fieldOf("replace_from_nbt").forGetter(NBTTreeFeatureConfigV2::replaceFromNBT),
+                    Codec.BOOL.optionalFieldOf("random_rotation", true).forGetter(NBTTreeFeatureConfigV2::randomRotation),
+                    Orientation.CODEC.optionalFieldOf("orientation", Orientation.STANDARD).forGetter(NBTTreeFeatureConfigV2::orientation)
+            ).apply(builder, NBTTreeFeatureConfigV2::new)
+    );
+
+    public enum Orientation {
+        STANDARD,
+        UPSIDE_DOWN,
+        SIDEWAYS;
+
+        public static final Codec<Orientation> CODEC = Codec.STRING.xmap(s -> Orientation.valueOf(s.toUpperCase()), s -> s.name().toUpperCase());
+    }
+
+    public static class Builder {
+        @Nullable
+        private Identifier baseLocation;
+        @Nullable
+        private Identifier canopyLocation;
+        @Nullable
+        private IntProvider height;
+        @Nullable
+        private BlockStateProvider logProvider;
+        @Nullable
+        private List<BlockStateProvider> leavesProvider;
+        @Nullable
+        private Set<Block> logTarget;
+        @Nullable
+        private List<Block> leavesTarget;
+        private BlockPredicate growableOn = BlockPredicate.replaceable();
+        private BlockPredicate leavesPlacementFilter = BlockPredicate.replaceable();
+        private BlockPredicate logsPlacementFilter = BlockPredicate.replaceable();
+        private int maxLogDepth = 5;
+        private List<TreeDecorator> treeDecorators = new ArrayList<>();
+        private Map<Block, BlockStateProvider> replaceFromNBT = new HashMap<>();
+        private boolean randomRotation = true;
+        private Orientation orientation = Orientation.STANDARD;
+
+        public Builder baseLocation(Identifier baseLocation) {
+            this.baseLocation = baseLocation;
+            return this;
+        }
+
+        public Builder canopyLocation(Identifier canopyLocation) {
+            this.canopyLocation = canopyLocation;
+            return this;
+        }
+
+        public Builder height(IntProvider height) {
+            this.height = height;
+            return this;
+        }
+
+        public Builder logProvider(BlockStateProvider logProvider) {
+            this.logProvider = logProvider;
+            return this;
+        }
+
+        public Builder leavesProvider(List<BlockStateProvider> leavesProvider) {
+            this.leavesProvider = leavesProvider;
+            return this;
+        }
+
+        public Builder logTarget(Set<Block> logTarget) {
+            this.logTarget = logTarget;
+            return this;
+        }
+
+        public Builder leavesTarget(List<Block> leavesTarget) {
+            this.leavesTarget = leavesTarget;
+            return this;
+        }
+
+        public Builder growableOn(BlockPredicate growableOn) {
+            this.growableOn = growableOn;
+            return this;
+        }
+
+        public Builder leavesPlacementFilter(BlockPredicate leavesPlacementFilter) {
+            this.leavesPlacementFilter = leavesPlacementFilter;
+            return this;
+        }
+
+        public Builder logsPlacementFilter(BlockPredicate logsPlacementFilter) {
+            this.logsPlacementFilter = logsPlacementFilter;
+            return this;
+        }
+
+        public Builder maxLogDepth(int maxLogDepth) {
+            this.maxLogDepth = maxLogDepth;
+            return this;
+        }
+
+        public Builder treeDecorators(List<TreeDecorator> treeDecorators) {
+            this.treeDecorators = treeDecorators;
+            return this;
+        }
+
+        public Builder replaceFromNBT(Map<Block, BlockStateProvider> placeFromNBT) {
+            this.replaceFromNBT = placeFromNBT;
+            return this;
+        }
+
+        public Builder randomRotation(boolean randomRotation) {
+            this.randomRotation = randomRotation;
+            return this;
+        }
+
+        public Builder orientation(Orientation orientation) {
+            this.orientation = orientation;
+            return this;
+        }
+
+        public NBTTreeFeatureConfigV2 build() {
+            if (baseLocation == null) {
+                throw new IllegalStateException("Base location cannot be null");
+            }
+            if (canopyLocation == null) {
+                throw new IllegalStateException("Canopy location cannot be null");
+            }
+            if (height == null) {
+                throw new IllegalStateException("Height cannot be null");
+            }
+            if (logProvider == null) {
+                throw new IllegalStateException("Log provider cannot be null");
+            }
+            if (leavesProvider == null) {
+                throw new IllegalStateException("Leaves provider cannot be null");
+            }
+            if (logTarget == null) {
+                throw new IllegalStateException("Log target cannot be null");
+            }
+            if (leavesTarget == null) {
+                throw new IllegalStateException("Leaves target cannot be null");
+            }
+
+            return new NBTTreeFeatureConfigV2(
+                    baseLocation,
+                    canopyLocation,
+                    height,
+                    logProvider,
+                    leavesProvider,
+                    logTarget,
+                    leavesTarget,
+                    growableOn,
+                    leavesPlacementFilter,
+                    logsPlacementFilter,
+                    maxLogDepth,
+                    treeDecorators,
+                    replaceFromNBT,
+                    randomRotation,
+                    orientation
+            );
+        }
+    }
+}

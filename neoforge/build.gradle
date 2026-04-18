@@ -16,6 +16,7 @@ def resourceTargets = [
         "mod_license": mod_license,
         "neoforge_loader_version": neoforge_loader_version,
         "minecraft_version": minecraft_version,
+        "min_minecraft_version": min_minecraft_version,
         "sources_link": sources_link,
         "issues_link": issues_link,
         "homepage_link": homepage_link,
@@ -57,8 +58,8 @@ dependencies {
     implementation project(":common")
 
     implementation "com.terraformersmc:biolith-neoforge:${biolith_version}"
-    implementation "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version_neoforge}"
-
     jarJar "com.terraformersmc:biolith-neoforge:${biolith_version}"
-    jarJar "maven.modrinth:oh-the-trees-youll-grow:${ottyg_version_neoforge}"
+
+    implementation project(":nbtfied_trees:neoforge")
+    jarJar project(":nbtfied_trees:neoforge")
 }

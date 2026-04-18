@@ -10,7 +10,7 @@ Next, unzip the ZIP file.
 Open folder in terminal (Command Line, PowerShell etc.) and run `./gradlew build`.
 
 Used libraries:<br>
-[Oh The Trees You'll Grow](https://github.com/CorgiTaco-MC/Oh-The-Trees-Youll-Grow): custom trees<br>
+NBTfied Trees, based on [Oh The Trees You'll Grow](https://github.com/CorgiTaco-MC/Oh-The-Trees-Youll-Grow): custom trees<br>
 [Biolith](https://github.com/TerraformersMC/Biolith): biome placement in world<br>
 
 <details>

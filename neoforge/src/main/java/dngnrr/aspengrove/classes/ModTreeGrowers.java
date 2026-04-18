@@ -10,8 +10,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Optional;
 
-import static dngnrr.aspengrove.Aspengrove.LOGGER;
-
 public class ModTreeGrowers {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SELECTOR =
 
@@ -35,6 +33,5 @@ public class ModTreeGrowers {
     );
 
     public static void initialize() {
-        LOGGER.info("Aspen Grove Tree Growers Initialized!");
     }
 }
