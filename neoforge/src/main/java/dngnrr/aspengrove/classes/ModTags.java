@@ -7,8 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import static dngnrr.aspengrove.Aspengrove.LOGGER;
-
 public class ModTags {
     public static void setup() {
         Blocks.setup();
@@ -34,6 +32,5 @@ public class ModTags {
     }
 
     public static void initialize() {
-        LOGGER.info("Aspen Grove Tags Initialized!");
     }
 }

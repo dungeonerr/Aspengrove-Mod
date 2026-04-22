@@ -351,9 +351,9 @@ public class ModBlocks {
                     .ofFullCopy(Blocks.POTTED_POPPY)
     );
 
-    public static final DeferredBlock<MushroomBlock> ORANGE_MUSHROOM = BLOCKS.registerBlock(
+    public static final DeferredBlock<ModMushroomBlock> ORANGE_MUSHROOM = BLOCKS.registerBlock(
             "orange_mushroom",
-            (p) -> new MushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM, p),
+            (p) -> new ModMushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(Blocks.RED_MUSHROOM)
                     .mapColor(MapColor.COLOR_ORANGE)
