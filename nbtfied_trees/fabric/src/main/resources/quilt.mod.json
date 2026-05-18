@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "starman.nbtfied_trees",
+    "id": "${lib_id}",
+    "version": "${lib_version}",
+    "metadata": {
+      "name": "${lib_name}",
+      "description": "${lib_description}",
+      "contributors": {
+        "Dungeonerr": "Author",
+        "StarmanMine142": "Author"
+      },
+      "license": "${mod_license}",
+      "icon": "assets/nbtfied_trees/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "main": "starman.nbtfied_trees.NBTfiedTrees"
+    },
+    "depends": [
+      {
+        "id": "fabricloader",
+        "versions": ">=${min_fabric_loader_version}"
+      },
+      {
+        "id": "minecraft",
+        "versions": "~${min_minecraft_version}"
+      },
+      {
+        "id": "java",
+        "versions": ">=${java_version}"
+      },
+      "fabric-api"
+    ],
+    "mixins": [
+      "nbtfied_trees.mixins.json"
+    ]
+  },
+  "access_widener": "nbtfied_trees.accesswidener",
+  "custom": {
+    "modmenu": {
+      "parent": "${mod_id}",
+      "badges": [
+        "library"
+      ]
+    }
+  }
+}

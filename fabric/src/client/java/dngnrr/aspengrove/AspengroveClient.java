@@ -9,6 +9,7 @@ import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.SignBlock;
 
 public class AspengroveClient implements ClientModInitializer {
     public static final String MOD_ID = "aspengrove";
@@ -32,18 +33,5 @@ public class AspengroveClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.ASPEN_CHEST_BOAT, context ->
                 new AspenBoatRenderer(context, ASPEN_CHEST_BOAT, "aspen", true)
         );
-
-        SpriteId signMaterial = new SpriteId(
-                Sheets.SIGN_SHEET,
-                Identifier.fromNamespaceAndPath(MOD_ID, "entity/signs/aspen")
-        );
-
-        SpriteId hangingSignMaterial = new SpriteId(
-                Sheets.SIGN_SHEET,
-                Identifier.fromNamespaceAndPath(MOD_ID, "entity/signs/hanging/aspen")
-        );
-
-        Sheets.SIGN_SPRITES.put(ModWoodTypes.ASPEN, signMaterial);
-        Sheets.HANGING_SIGN_SPRITES.put(ModWoodTypes.ASPEN, hangingSignMaterial);
     }
 }

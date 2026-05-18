@@ -9,10 +9,6 @@
     "chunk.MixinChunkSerializer",
     "chunk.MixinLevelChunk"
   ],
-  "client": [
-  ],
-  "server": [
-  ],
   "injectors": {
     "defaultRequire": 1
   }

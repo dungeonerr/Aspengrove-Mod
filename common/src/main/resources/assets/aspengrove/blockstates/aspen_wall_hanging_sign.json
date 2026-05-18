@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "aspengrove:block/aspen_hanging_sign"
+    "facing=east": {
+      "model": "aspengrove:block/aspen_wall_hanging_sign",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "aspengrove:block/aspen_wall_hanging_sign",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "aspengrove:block/aspen_wall_hanging_sign"
+    },
+    "facing=west": {
+      "model": "aspengrove:block/aspen_wall_hanging_sign",
+      "y": 90
     }
   }
 }

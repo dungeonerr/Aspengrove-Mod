@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/sign_rot_1",
+  "textures": {
+    "all": "aspengrove:block/aspen_sign",
+    "particle": "aspengrove:block/aspen_planks"
+  }
+}

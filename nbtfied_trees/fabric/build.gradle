@@ -41,7 +41,7 @@ processResources {
 
     inputs.properties replaceProperties
 
-    filesMatching("fabric.mod.json") {
+    filesMatching(["fabric.mod.json", "quilt.mod.json"]) {
         expand replaceProperties
     }
 }

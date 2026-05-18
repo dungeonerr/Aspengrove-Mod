@@ -24,7 +24,7 @@ public class NBTfiedTrees {
 
     public NBTfiedTrees(IEventBus modEventBus) {
         LOGGER.info("Initializing {}", MOD_NAME);
-        
+
         NBTfiedTreesFeatures.register(modEventBus);
         NBTfiedDecorationsTypes.register(modEventBus);
         NBTfiedConfiguredFeatures.register();

@@ -36,8 +36,4 @@ public class AspengroveClient {
         event.registerEntityRenderer(ModEntities.ASPEN_CHEST_BOAT.get(),
                 context -> new AspenBoatRenderer(context, ASPEN_CHEST_BOAT_LAYER));
     }
-
-    public void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> Sheets.addWoodType(ModWoodTypes.ASPEN));
-    }
 }
