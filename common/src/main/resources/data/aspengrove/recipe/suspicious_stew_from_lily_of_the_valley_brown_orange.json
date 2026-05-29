@@ -4,15 +4,15 @@
   "ingredients": [
     "minecraft:bowl",
     "minecraft:brown_mushroom",
-    "minecraft:red_mushroom",
-    "aspengrove:honeyflower"
+    "aspengrove:orange_mushroom",
+    "minecraft:lily_of_the_valley"
   ],
   "result": {
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "duration": 200,
-          "id": "minecraft:health_boost"
+          "duration": 220,
+          "id": "minecraft:poison"
         }
       ]
     },
