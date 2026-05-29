@@ -3,16 +3,16 @@
   "group": "suspicious_stew",
   "ingredients": [
     "minecraft:bowl",
-    "minecraft:brown_mushroom",
+    "aspengrove:orange_mushroom",
     "minecraft:red_mushroom",
-    "aspengrove:honeyflower"
+    "minecraft:wither_rose"
   ],
   "result": {
     "components": {
       "minecraft:suspicious_stew_effects": [
         {
-          "duration": 200,
-          "id": "minecraft:health_boost"
+          "duration": 140,
+          "id": "minecraft:wither"
         }
       ]
     },

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_tulip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:orange_tulip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:suspicious_stew_from_orange_tulip"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_tulip"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aspengrove:suspicious_stew_from_orange_tulip_brown_orange",
+      "aspengrove:suspicious_stew_from_orange_tulip_red_orange"
+    ]
+  }
+}
