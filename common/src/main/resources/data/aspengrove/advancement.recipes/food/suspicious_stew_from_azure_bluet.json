@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azure_bluet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:azure_bluet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:suspicious_stew_from_azure_bluet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_azure_bluet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aspengrove:suspicious_stew_from_azure_bluet_brown_orange",
+      "aspengrove:suspicious_stew_from_azure_bluet_red_orange"
+    ]
+  }
+}

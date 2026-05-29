@@ -8,7 +8,7 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 description = "${mod_description}"
 authors = "Dungeonerr, StarmanMine142"
-logoFile = "assets/aspengrove/icon.png"
+logoFile = "assets/${mod_id}/icon.png"
 
 displayURL = "${homepage_link}"
 issueTrackerURL = "${issues_link}"
