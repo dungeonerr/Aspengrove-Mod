@@ -1,6 +1,5 @@
 package dngnrr.aspengrove.classes;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -24,63 +23,19 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import dngnrr.aspengrove.Aspengrove;
+import dngnrr.aspengrove.AspenGrove;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Set;
 
-public class ModBlocks {
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Aspengrove.MOD_ID);
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Aspengrove.MOD_ID);
+public class AspenGroveBlocks {
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(AspenGrove.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AspenGrove.MOD_ID);
 
     public static void initialize(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);
-    }
-
-    private static class AspenLeavesBlock extends LeavesBlock {
-        public static final MapCodec<AspenLeavesBlock> CODEC = simpleCodec(AspenLeavesBlock::new);
-        public AspenLeavesBlock(BlockBehaviour.Properties properties) {
-            super(0.05f,properties);
-        }
-
-        @Override
-        public MapCodec<? extends LeavesBlock> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-            super.animateTick(state, level, pos, random);
-            if (random.nextFloat() < 0.05f) {
-                BlockPos blockPos = pos.below();
-                BlockState blockState = level.getBlockState(blockPos);
-                if (blockState.isFaceSturdy(level, blockPos, Direction.UP)) {
-                    return;
-                }
-
-                int count = 1 + random.nextInt(1);
-                for (int i = 0; i < count; i++) {
-                    double x = pos.getX() + random.nextDouble();
-                    double y = pos.getY() - 0.1;
-                    double z = pos.getZ() + random.nextDouble();
-                    double xSpeed = (random.nextDouble() - 0.5) * 0.02;
-                    double ySpeed = -0.04 - random.nextDouble() * 0.03;
-                    double zSpeed = (random.nextDouble() - 0.5) * 0.02;
-                    float[] color = new float[]{1.0F, 0.84F, 0.0F};
-                    level.addParticle(
-                            ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, color[0], color[1], color[2]),
-                            x, y, z,
-                            xSpeed, ySpeed, zSpeed
-                    );
-                }
-            }
-        }
-
-        @Override
-        protected void spawnFallingLeavesParticle(Level level, BlockPos blockPos, RandomSource randomSource) {
-        }
     }
 
     public static final DeferredBlock<RotatedPillarBlock> ASPEN_LOG = BLOCKS.registerBlock(
@@ -295,9 +250,9 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> ASPEN_SHELF_ITEM =
             ITEMS.registerSimpleBlockItem("aspen_shelf", ASPEN_SHELF);
 
-    public static final DeferredBlock<AspenLeavesBlock> ASPEN_LEAVES = BLOCKS.registerBlock(
+    public static final DeferredBlock<AspenGroveLeavesBlock> ASPEN_LEAVES = BLOCKS.registerBlock(
             "aspen_leaves",
-            AspenLeavesBlock::new,
+            AspenGroveLeavesBlock::new,
             p -> p
                     .mapColor(ModColors.ASPEN_LEAVES)
                     .sound(SoundType.GRASS)

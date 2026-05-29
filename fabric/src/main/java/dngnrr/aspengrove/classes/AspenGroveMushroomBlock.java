@@ -14,10 +14,10 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 import java.util.Optional;
 
-public class ModMushroomBlock extends MushroomBlock {
+public class AspenGroveMushroomBlock extends MushroomBlock {
     private final ResourceKey<ConfiguredFeature<?, ?>> feature;
 
-    public ModMushroomBlock(ResourceKey<ConfiguredFeature<?, ?>> feature, Properties properties) {
+    public AspenGroveMushroomBlock(ResourceKey<ConfiguredFeature<?, ?>> feature, Properties properties) {
         super(feature, properties);
         this.feature = feature;
     }

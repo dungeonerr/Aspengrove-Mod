@@ -19,10 +19,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"dngnrr.aspengrove.Aspengrove"
+			"dngnrr.aspengrove.AspenGrove"
 		],
 		"client": [
-			"dngnrr.aspengrove.AspengroveClient"
+			"dngnrr.aspengrove.AspenGroveClient"
 		]
 	},
 	"depends": {

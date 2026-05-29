@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 
-public class ModBiomes {
+public class AspenGroveBiomes {
     public static final ResourceKey<Biome> ASPEN_GROVE = ResourceKey.create(
             Registries.BIOME,
             Identifier.fromNamespaceAndPath("aspengrove", "aspen_grove")

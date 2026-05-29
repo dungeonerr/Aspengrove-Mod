@@ -1,7 +1,7 @@
 package dngnrr.aspengrove.classes;
 
 import com.mojang.serialization.MapCodec;
-import dngnrr.aspengrove.Aspengrove;
+import dngnrr.aspengrove.AspenGrove;
 import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
@@ -31,59 +31,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.HashSet;
 import java.util.function.Function;
 import java.lang.reflect.Field;
 import java.util.Set;
 
-public class ModBlocks {
+public class AspenGroveBlocks {
     public static void initialize() {
         addToBlockEntityTypes();
-    }
-
-    private static class AspenLeavesBlock extends LeavesBlock {
-        public static final MapCodec<AspenLeavesBlock> CODEC = simpleCodec(AspenLeavesBlock::new);
-        public AspenLeavesBlock(BlockBehaviour.Properties properties) {
-            super(0.05f,properties);
-        }
-
-        @Override
-        public MapCodec<? extends LeavesBlock> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-            super.animateTick(state, level, pos, random);
-            if (random.nextFloat() < 0.05f) {
-                BlockPos blockPos = pos.below();
-                BlockState blockState = level.getBlockState(blockPos);
-                if (blockState.isFaceSturdy(level, blockPos, net.minecraft.core.Direction.UP)) {
-                    return;
-                }
-
-                int count = 1 + random.nextInt(1);
-                for (int i = 0; i < count; i++) {
-                    double x = pos.getX() + random.nextDouble();
-                    double y = pos.getY() - 0.1;
-                    double z = pos.getZ() + random.nextDouble();
-                    double xSpeed = (random.nextDouble() - 0.5) * 0.02;
-                    double ySpeed = -0.04 - random.nextDouble() * 0.03;
-                    double zSpeed = (random.nextDouble() - 0.5) * 0.02;
-                    float[] color = new float[]{1.0F, 0.84F, 0.0F};
-                    level.addParticle(
-                            ColorParticleOption.create(ParticleTypes.TINTED_LEAVES, color[0], color[1], color[2]),
-                            x, y, z,
-                            xSpeed, ySpeed, zSpeed
-                    );
-                }
-            }
-        }
-
-        @Override
-        protected void spawnFallingLeavesParticle(Level level,BlockPos blockPos,RandomSource randomSource) {
-        }
     }
 
     private static Block register(String name,Function<BlockBehaviour.Properties, Block> blockFactory,BlockBehaviour.Properties settings,boolean shouldRegisterItem) {
@@ -98,11 +52,11 @@ public class ModBlocks {
     }
 
     private static ResourceKey<Block> keyOfBlock(String name) {
-        return ResourceKey.create(Registries.BLOCK,Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,name));
+        return ResourceKey.create(Registries.BLOCK,Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID,name));
     }
 
     private static ResourceKey<Item> keyOfItem(String name) {
-        return ResourceKey.create(Registries.ITEM,Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID,name));
+        return ResourceKey.create(Registries.ITEM,Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID,name));
     }
 
     public static final Block ASPEN_LOG = register(
@@ -157,7 +111,7 @@ public class ModBlocks {
             "aspen_planks",
             Block::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(ModColors.ASPEN_PLANKS)
+                    .mapColor(AspenGroveColors.ASPEN_PLANKS)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -169,7 +123,7 @@ public class ModBlocks {
             "aspen_slab",
             SlabBlock::new,
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS),
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS),
             true
     );
 
@@ -185,7 +139,7 @@ public class ModBlocks {
             "aspen_fence",
             FenceBlock::new,
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS),
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS),
             true
     );
 
@@ -193,7 +147,7 @@ public class ModBlocks {
             "aspen_fence_gate",
             (settings) -> new FenceGateBlock(WoodType.OAK,settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .noOcclusion(),
             true
     );
@@ -202,7 +156,7 @@ public class ModBlocks {
             "aspen_pressure_plate",
             (settings) -> new PressurePlateBlock(WoodType.OAK.setType(),settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .noCollision()
                     .strength(0.5f),
             true
@@ -212,7 +166,7 @@ public class ModBlocks {
             "aspen_button",
             (settings) -> new ButtonBlock(BlockSetType.OAK,30,settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .noCollision()
                     .strength(0.5f),
             true
@@ -222,7 +176,7 @@ public class ModBlocks {
             "aspen_door",
             (settings) -> new DoorBlock(BlockSetType.OAK,settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
                     .isViewBlocking((state,world,pos) -> false)
                     .noOcclusion(),
@@ -233,7 +187,7 @@ public class ModBlocks {
             "aspen_trapdoor",
             (settings) -> new TrapDoorBlock(BlockSetType.OAK,settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
                     .isViewBlocking((state,world,pos) -> false)
                     .noOcclusion(),
@@ -242,8 +196,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_sign"),
-            new StandingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_sign"),
+            new StandingSignBlock(AspenGroveWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_sign"))
                     .forceSolidOn()
@@ -254,8 +208,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_WALL_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_sign"),
-            new WallSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_wall_sign"),
+            new WallSignBlock(AspenGroveWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_wall_sign"))
                     .forceSolidOn()
@@ -265,7 +219,7 @@ public class ModBlocks {
     );
     public static final Item ASPEN_SIGN_ITEM = Registry.register(
             BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_sign"),
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_sign"),
             new SignItem(
                     ASPEN_SIGN,
                     ASPEN_WALL_SIGN,
@@ -278,8 +232,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_hanging_sign"),
-            new CeilingHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_hanging_sign"),
+            new CeilingHangingSignBlock(AspenGroveWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_hanging_sign"))
                     .forceSolidOn()
@@ -290,8 +244,8 @@ public class ModBlocks {
 
     public static final Block ASPEN_WALL_HANGING_SIGN = Registry.register(
             BuiltInRegistries.BLOCK,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_wall_hanging_sign"),
-            new WallHangingSignBlock(ModWoodTypes.ASPEN, BlockBehaviour.Properties
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_wall_hanging_sign"),
+            new WallHangingSignBlock(AspenGroveWoodTypes.ASPEN, BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS)
                     .setId(keyOfBlock("aspen_wall_hanging_sign"))
                     .forceSolidOn()
@@ -302,7 +256,7 @@ public class ModBlocks {
 
     public static final Item ASPEN_HANGING_SIGN_ITEM = Registry.register(
             BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(Aspengrove.MOD_ID, "aspen_hanging_sign"),
+            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_hanging_sign"),
             new HangingSignItem(
                     ASPEN_HANGING_SIGN,
                     ASPEN_WALL_HANGING_SIGN,
@@ -316,16 +270,16 @@ public class ModBlocks {
             "aspen_shelf",
             ShelfBlock::new,
             BlockBehaviour.Properties
-                    .ofFullCopy(ModBlocks.ASPEN_PLANKS)
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .sound(SoundType.SHELF),
             true
     );
 
     public static final Block ASPEN_LEAVES = register(
             "aspen_leaves",
-            AspenLeavesBlock::new,
+            AspenGroveLeavesBlock::new,
             BlockBehaviour.Properties.of()
-                    .mapColor(ModColors.ASPEN_LEAVES)
+                    .mapColor(AspenGroveColors.ASPEN_LEAVES)
                     .sound(SoundType.GRASS)
                     .strength(0.2f)
                     .isSuffocating((state,world,pos) -> false)
@@ -339,7 +293,7 @@ public class ModBlocks {
 
     public static final Block ASPEN_SAPLING = register(
             "aspen_sapling",
-            (settings) -> new SaplingBlock(ModTreeGrowers.ASPEN, settings),
+            (settings) -> new SaplingBlock(AspenGroveTreeGrowers.ASPEN, settings),
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.PLANT)
                     .noCollision()
@@ -378,7 +332,7 @@ public class ModBlocks {
 
     public static final Block ORANGE_MUSHROOM = register(
             "orange_mushroom",
-            (properties) -> new ModMushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, properties),
+            (properties) -> new AspenGroveMushroomBlock(AspenGroveTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)
                     .mapColor(MapColor.COLOR_ORANGE),
             true

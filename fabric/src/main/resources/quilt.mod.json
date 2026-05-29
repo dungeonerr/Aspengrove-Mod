@@ -19,10 +19,9 @@
       "license": "${mod_license}",
       "icon": "assets/aspengrove/icon.png"
     },
-    "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "main": "dngnrr.aspengrove.Aspengrove",
-      "client": "dngnrr.aspengrove.AspengroveClient"
+      "main": "dngnrr.aspengrove.AspenGrove",
+      "client": "dngnrr.aspengrove.AspenGroveClient"
     },
     "depends": [
       {

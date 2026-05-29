@@ -1,6 +1,6 @@
 package dngnrr.aspengrove.classes;
 
-import dngnrr.aspengrove.Aspengrove;
+import dngnrr.aspengrove.AspenGrove;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
@@ -12,14 +12,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Function;
 
-public class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Aspengrove.MOD_ID);
+public class AspenGroveItems {
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AspenGrove.MOD_ID);
 
     public static final DeferredItem<Item> ASPEN_BOAT = register("aspen_boat",
-            settings -> new BoatItem(ModEntities.ASPEN_BOAT.get(), settings.stacksTo(1)));
+            settings -> new BoatItem(AspenGroveEntities.ASPEN_BOAT.get(), settings.stacksTo(1)));
 
     public static final DeferredItem<Item> ASPEN_CHEST_BOAT = register("aspen_chest_boat",
-            settings -> new BoatItem(ModEntities.ASPEN_CHEST_BOAT.get(), settings.stacksTo(1)));
+            settings -> new BoatItem(AspenGroveEntities.ASPEN_CHEST_BOAT.get(), settings.stacksTo(1)));
 
     public static final DeferredItem<Item> BOUQUET = register("bouquet",
             properties -> new Item(properties.stacksTo(16))

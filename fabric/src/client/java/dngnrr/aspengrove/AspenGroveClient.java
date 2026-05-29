@@ -6,12 +6,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.SignBlock;
 
-public class AspengroveClient implements ClientModInitializer {
+public class AspenGroveClient implements ClientModInitializer {
     public static final String MOD_ID = "aspengrove";
 
     public static final ModelLayerLocation ASPEN_BOAT = register("boat/aspen");
@@ -26,11 +23,11 @@ public class AspengroveClient implements ClientModInitializer {
         ModelLayerRegistry.registerModelLayer(ASPEN_BOAT, BoatModel::createBoatModel);
         ModelLayerRegistry.registerModelLayer(ASPEN_CHEST_BOAT, BoatModel::createChestBoatModel);
 
-        EntityRendererRegistry.register(ModEntities.ASPEN_BOAT, context ->
+        EntityRendererRegistry.register(AspenGroveEntities.ASPEN_BOAT, context ->
                 new AspenBoatRenderer(context, ASPEN_BOAT, "aspen", false)
         );
 
-        EntityRendererRegistry.register(ModEntities.ASPEN_CHEST_BOAT, context ->
+        EntityRendererRegistry.register(AspenGroveEntities.ASPEN_CHEST_BOAT, context ->
                 new AspenBoatRenderer(context, ASPEN_CHEST_BOAT, "aspen", true)
         );
     }
