@@ -30,7 +30,7 @@
       },
       {
         "id": "minecraft",
-        "versions": "~${minecraft_version}"
+        "versions": "${minecraft_version}"
       },
       {
         "id": "java",
