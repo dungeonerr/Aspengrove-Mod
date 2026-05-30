@@ -19,7 +19,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "dngnrr.aspengrove.AspenGrove"
+			"dngnrr.aspengrove.AspenGrove"
 		],
 		"client": [
 			"dngnrr.aspengrove.AspenGroveClient"
