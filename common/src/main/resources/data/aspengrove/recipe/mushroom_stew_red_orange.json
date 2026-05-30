@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "aspengrove:orange_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:mushroom_stew"
+  }
+}

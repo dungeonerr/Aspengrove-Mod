@@ -3,8 +3,8 @@ package dngnrr.aspengrove.classes.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.datafixers.util.Pair;
-import dngnrr.aspengrove.Aspengrove;
-import dngnrr.aspengrove.classes.ModBoatType;
+import dngnrr.aspengrove.AspenGrove;
+import dngnrr.aspengrove.classes.AspenGroveBoatType;
 import dngnrr.aspengrove.classes.boats.*;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -25,16 +25,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AspenBoatRenderer extends EntityRenderer<Boat> {
-    private final Map<ModBoatType, Pair<ResourceLocation, ListModel<Boat>>> boatResources = new HashMap<>();
+    private final Map<AspenGroveBoatType, Pair<ResourceLocation, ListModel<Boat>>> boatResources = new HashMap<>();
 
     public AspenBoatRenderer(EntityRendererProvider.Context context, boolean isChest) {
         super(context);
-        for (ModBoatType type : ModBoatType.values()) {
+        for (AspenGroveBoatType type : AspenGroveBoatType.values()) {
             String folder = isChest ? "chest_boat" : "boat";
-            ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(Aspengrove.MOD_ID,
+            ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(AspenGrove.MOD_ID,
                     "textures/entity/" + folder + "/" + type.getSerializedName() + ".png");
 
-            ModelLayerLocation layer = isChest ? AspengroveClient.ASPEN_CHEST_BOAT_LAYER : AspengroveClient.ASPEN_BOAT_LAYER;
+            ModelLayerLocation layer = isChest ? AspenGroveClient.ASPEN_CHEST_BOAT_LAYER : AspenGroveClient.ASPEN_BOAT_LAYER;
 
             ListModel<Boat> model = isChest
                     ? new ChestBoatModel(context.bakeLayer(layer))
@@ -87,12 +87,12 @@ public class AspenBoatRenderer extends EntityRenderer<Boat> {
     }
 
     private Pair<ResourceLocation, ListModel<Boat>> getModResources(Boat boat) {
-        ModBoatType type = ModBoatType.ASPEN;
-        if (boat instanceof ModBoatEntity modBoat) {
+        AspenGroveBoatType type = AspenGroveBoatType.ASPEN;
+        if (boat instanceof AspenGroveBoatEntity modBoat) {
             type = modBoat.getModVariant();
-        } else if (boat instanceof ModChestBoatEntity modChestBoat) {
+        } else if (boat instanceof AspenGroveChestBoatEntity modChestBoat) {
             type = modChestBoat.getModVariant();
         }
-        return boatResources.getOrDefault(type, boatResources.get(ModBoatType.ASPEN));
+        return boatResources.getOrDefault(type, boatResources.get(AspenGroveBoatType.ASPEN));
     }
 }

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "dngnrr.aspengrove",
+    "id": "${mod_id}",
+    "version": "${version}",
+    "metadata": {
+      "name": "${mod_name}",
+      "description": "${mod_description}",
+      "contributors": {
+        "Dungeonerr": "Author",
+        "StarmanMine142": "Author"
+      },
+      "contact": {
+        "homepage": "${homepage_link}",
+        "sources": "${sources_link}",
+        "issues": "${issues_link}"
+      },
+      "license": "${mod_license}",
+      "icon": "assets/${mod_id}/icon.png"
+    },
+    "entrypoints": {
+      "main": "dngnrr.aspengrove.AspenGrove",
+      "client": "dngnrr.aspengrove.AspenGroveClient"
+    },
+    "depends": [
+      {
+        "id": "fabricloader",
+        "versions": ">=${fabric_loader_version}"
+      },
+      {
+        "id": "minecraft",
+        "versions": "~${minecraft_version}"
+      },
+      {
+        "id": "java",
+        "versions": ">=${java_version}"
+      },
+      "fabric-api",
+      "ohthetreesyoullgrow",
+      "biolith"
+    ]
+  },
+  "access_widener": "aspengrove.accesswidener"
+}
