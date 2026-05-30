@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/attached_hanging_sign_rot_1",
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_1",
   "textures": {
     "all": "aspengrove:block/aspen_hanging_sign",
     "particle": "aspengrove:block/stripped_aspen_log"

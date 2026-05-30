@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/wall_sign",
+  "parent": "minecraft:block/template_wall_sign",
   "textures": {
     "all": "aspengrove:block/aspen_sign",
     "particle": "aspengrove:block/aspen_planks"
