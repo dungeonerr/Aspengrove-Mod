@@ -15,7 +15,7 @@
 		"issues": "${issues_link}"
 	},
 	"license": "${mod_license}",
-	"icon": "assets/aspengrove/icon.png",
+	"icon": "assets/${mod_id}/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
