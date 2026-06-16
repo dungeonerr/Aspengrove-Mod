@@ -17,7 +17,7 @@ public class AspenGrove {
     public static final String MOD_ID = "aspengrove";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public Aspengrove(IEventBus modEventBus) {
+    public AspenGrove(IEventBus modEventBus) {
         AspenGroveBlocks.initialize(modEventBus);
         AspenGroveEntities.init(modEventBus);
         AspenGroveItems.initialize(modEventBus);
@@ -36,9 +36,9 @@ public class AspenGrove {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ModBiomes.registerBiomes();
+            AspenGroveBiomes.registerBiomes();
             registerFlammability();
-            ModBlocks.addToBlockEntityTypes();
+            AspenGroveBlocks.addToBlockEntityTypes();
             LOGGER.info("Aspen Grove Initialized!");
         });
     }

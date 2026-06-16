@@ -11,7 +11,7 @@ import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -94,7 +94,7 @@ public class AspenGroveBlocks {
             "aspen_planks",
             Block::new,
             p -> p
-                    .mapColor(ModColors.ASPEN_PLANKS)
+                    .mapColor(AspenGroveColors.ASPEN_PLANKS)
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
@@ -188,7 +188,7 @@ public class AspenGroveBlocks {
 
     public static final DeferredBlock<StandingSignBlock> ASPEN_SIGN = BLOCKS.registerBlock(
             "aspen_sign",
-            (p) -> new StandingSignBlock(ModWoodTypes.ASPEN, p),
+            (p) -> new StandingSignBlock(AspenGroveWoodTypes.ASPEN, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS.get())
                     .forceSolidOn()
@@ -198,7 +198,7 @@ public class AspenGroveBlocks {
 
     public static final DeferredBlock<WallSignBlock> ASPEN_WALL_SIGN = BLOCKS.registerBlock(
             "aspen_wall_sign",
-            (p) -> new WallSignBlock(ModWoodTypes.ASPEN, p),
+            (p) -> new WallSignBlock(AspenGroveWoodTypes.ASPEN, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS.get())
                     .forceSolidOn()
@@ -215,7 +215,7 @@ public class AspenGroveBlocks {
 
     public static final DeferredBlock<CeilingHangingSignBlock> ASPEN_HANGING_SIGN = BLOCKS.registerBlock(
             "aspen_hanging_sign",
-            (p) -> new CeilingHangingSignBlock(ModWoodTypes.ASPEN, p),
+            (p) -> new CeilingHangingSignBlock(AspenGroveWoodTypes.ASPEN, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS.get())
                     .forceSolidOn()
@@ -225,7 +225,7 @@ public class AspenGroveBlocks {
 
     public static final DeferredBlock<WallHangingSignBlock> ASPEN_WALL_HANGING_SIGN = BLOCKS.registerBlock(
             "aspen_wall_hanging_sign",
-            (p) -> new WallHangingSignBlock(ModWoodTypes.ASPEN, p),
+            (p) -> new WallHangingSignBlock(AspenGroveWoodTypes.ASPEN, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(ASPEN_PLANKS.get())
                     .forceSolidOn()
@@ -254,7 +254,7 @@ public class AspenGroveBlocks {
             "aspen_leaves",
             AspenGroveLeavesBlock::new,
             p -> p
-                    .mapColor(ModColors.ASPEN_LEAVES)
+                    .mapColor(AspenGroveColors.ASPEN_LEAVES)
                     .sound(SoundType.GRASS)
                     .strength(0.2f)
                     .isSuffocating((s,w,pos) -> false)
@@ -269,7 +269,7 @@ public class AspenGroveBlocks {
 
     public static final DeferredBlock<SaplingBlock> ASPEN_SAPLING = BLOCKS.registerBlock(
             "aspen_sapling",
-            (p) -> new SaplingBlock(ModTreeGrowers.ASPEN, p),
+            (p) -> new SaplingBlock(AspenGroveTreeGrowers.ASPEN, p),
             p -> p.mapColor(MapColor.PLANT)
                     .noCollision()
                     .randomTicks()
@@ -306,9 +306,9 @@ public class AspenGroveBlocks {
                     .ofFullCopy(Blocks.POTTED_POPPY)
     );
 
-    public static final DeferredBlock<ModMushroomBlock> ORANGE_MUSHROOM = BLOCKS.registerBlock(
+    public static final DeferredBlock<AspenGroveMushroomBlock> ORANGE_MUSHROOM = BLOCKS.registerBlock(
             "orange_mushroom",
-            (p) -> new ModMushroomBlock(ModTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, p),
+            (p) -> new AspenGroveMushroomBlock(AspenGroveTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, p),
             p -> BlockBehaviour.Properties
                     .ofFullCopy(Blocks.RED_MUSHROOM)
                     .mapColor(MapColor.COLOR_ORANGE)
@@ -352,9 +352,9 @@ public class AspenGroveBlocks {
             if (targetField == null) return;
             targetField.setAccessible(true);
 
-            updateBlockEntitySet(targetField, BlockEntityType.SIGN, ASPEN_SIGN.get(), ASPEN_WALL_SIGN.get());
-            updateBlockEntitySet(targetField, BlockEntityType.HANGING_SIGN, ASPEN_HANGING_SIGN.get(), ASPEN_WALL_HANGING_SIGN.get());
-            updateBlockEntitySet(targetField, BlockEntityType.SHELF, ASPEN_SHELF.get());
+            updateBlockEntitySet(targetField, BlockEntityTypes.SIGN, ASPEN_SIGN.get(), ASPEN_WALL_SIGN.get());
+            updateBlockEntitySet(targetField, BlockEntityTypes.HANGING_SIGN, ASPEN_HANGING_SIGN.get(), ASPEN_WALL_HANGING_SIGN.get());
+            updateBlockEntitySet(targetField, BlockEntityTypes.SHELF, ASPEN_SHELF.get());
 
         } catch (Exception e) {
             e.printStackTrace();

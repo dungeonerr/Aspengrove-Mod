@@ -16,7 +16,7 @@ public class AspenGroveCreativeTab {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ASPENGROVE_TAB =
             CREATIVE_MODE_TABS.register("aspengrove", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.aspengrove"))
-                    .icon(() -> new ItemStack(ModBlocks.ASPEN_LOG.get()))
+                    .icon(() -> new ItemStack(AspenGroveBlocks.ASPEN_LOG.get()))
                     .displayItems((parameters, output) -> {
                         output.accept(new ItemStack(AspenGroveBlocks.ASPEN_LOG.get()));
                         output.accept(new ItemStack(AspenGroveBlocks.ASPEN_WOOD.get()));

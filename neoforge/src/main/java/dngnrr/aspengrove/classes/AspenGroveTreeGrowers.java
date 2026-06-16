@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Optional;
 
-public class ModTreeGrowers {
+public class AspenGroveTreeGrowers {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SELECTOR =
             ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_selector"));
 

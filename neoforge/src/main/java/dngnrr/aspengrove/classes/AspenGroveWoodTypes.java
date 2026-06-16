@@ -3,8 +3,6 @@ package dngnrr.aspengrove.classes;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
-import static dngnrr.aspengrove.Aspengrove.LOGGER;
-
 public class AspenGroveWoodTypes {
     public static final BlockSetType ASPEN_BLOCK_SET_TYPE = BlockSetType.register(new BlockSetType("aspengrove:aspen"));
     public static final WoodType ASPEN = WoodType.register(new WoodType("aspengrove:aspen", ASPEN_BLOCK_SET_TYPE));
