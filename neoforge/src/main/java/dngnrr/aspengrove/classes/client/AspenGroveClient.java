@@ -2,14 +2,10 @@ package dngnrr.aspengrove.classes.client;
 
 import dngnrr.aspengrove.AspenGrove;
 import dngnrr.aspengrove.classes.AspenGroveEntities;
-import dngnrr.aspengrove.classes.AspenGroveWoodTypes;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.Identifier;
-import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public class AspenGroveClient {

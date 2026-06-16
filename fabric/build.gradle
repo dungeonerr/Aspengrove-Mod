@@ -30,7 +30,7 @@ processResources {
 
     from project(":common").sourceSets.main.resources
 
-    filesMatching(["fabric.mod.json", "quilt.mod.json"]) {
+    filesMatching("fabric.mod.json") {
         expand resourceTargets
     }
 }
