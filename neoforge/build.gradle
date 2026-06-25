@@ -57,9 +57,6 @@ neoForge {
 dependencies {
     implementation project(":common")
 
-    implementation "com.terraformersmc:biolith-neoforge:${biolith_version}"
-    jarJar "com.terraformersmc:biolith-neoforge:${biolith_version}"
-
-    implementation project(":nbtfied_trees:neoforge")
-    jarJar project(":nbtfied_trees:neoforge")
+//  implementation "com.terraformersmc:biolith-neoforge:${biolith_version}"
+//  jarJar "com.terraformersmc:biolith-neoforge:${biolith_version}"
 }

@@ -10,14 +10,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Optional;
 
 public class AspenGroveMushroomBlock extends MushroomBlock {
-    private final ResourceKey<ConfiguredFeature<?, ?>> feature;
+    private final ResourceKey<Feature> feature;
 
-    public AspenGroveMushroomBlock(ResourceKey<ConfiguredFeature<?, ?>> feature, Properties properties) {
+    public AspenGroveMushroomBlock(ResourceKey<Feature> feature, Properties properties) {
         super(feature, properties);
         this.feature = feature;
     }
@@ -38,8 +38,8 @@ public class AspenGroveMushroomBlock extends MushroomBlock {
     }
 
     public boolean growMushroom(ServerLevel level, BlockPos pos, BlockState state, RandomSource random) {
-        Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = level.registryAccess()
-                .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+        Optional<? extends Holder<Feature>> optional = level.registryAccess()
+                .lookupOrThrow(Registries.FEATURE)
                 .get(this.feature);
 
         if (optional.isEmpty()) {

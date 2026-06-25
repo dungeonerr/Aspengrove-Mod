@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:random_selector",
+  "default": "aspengrove:aspen",
+  "features": [
+    {
+      "chance": 0.07,
+      "feature": "minecraft:super_birch_bees"
+    },
+    {
+      "chance": 0.06,
+      "feature": "aspengrove:fallen_aspen_tree"
+    }
+  ]
+}

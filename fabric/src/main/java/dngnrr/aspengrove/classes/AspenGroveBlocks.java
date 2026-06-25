@@ -1,12 +1,9 @@
 package dngnrr.aspengrove.classes;
 
-import com.mojang.serialization.MapCodec;
 import dngnrr.aspengrove.AspenGrove;
 import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.ColorParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -18,16 +15,13 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
+import net.minecraft.world.level.block.sounds.AmbientLeavesBlockSoundPlayer;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
@@ -277,7 +271,7 @@ public class AspenGroveBlocks {
 
     public static final Block ASPEN_LEAVES = register(
             "aspen_leaves",
-            AspenGroveLeavesBlock::new,
+            (properties) -> new AspenGroveLeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), properties),
             BlockBehaviour.Properties.of()
                     .mapColor(AspenGroveColors.ASPEN_LEAVES)
                     .sound(SoundType.GRASS)

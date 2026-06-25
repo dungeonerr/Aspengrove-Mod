@@ -26,7 +26,7 @@ public class AspenGrove implements ModInitializer {
         AspenGroveItems.initialize();
         AspenGroveItems.registerCompostables();
         AspenGroveItems.registerFuels();
-        AspenGroveBiomes.registerBiomes();
+//      AspenGroveBiomes.registerBiomes();
 
         LOGGER.info("Aspen Grove Initialized!");
     }

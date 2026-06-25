@@ -1,7 +1,9 @@
 package dngnrr.aspengrove.classes;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -9,11 +11,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.sounds.AmbientLeavesBlockSoundPlayer;
 
 public class AspenGroveLeavesBlock extends LeavesBlock {
-    public static final MapCodec<AspenGroveLeavesBlock> CODEC = simpleCodec(AspenGroveLeavesBlock::new);
-    public AspenGroveLeavesBlock(BlockBehaviour.Properties properties) {
-        super(0.05f,properties);
+    public static final MapCodec<AspenGroveLeavesBlock> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            instance.group(
+                    AmbientLeavesBlockSoundPlayer.CODEC.fieldOf("ambient_leaves_block_sound_player").forGetter(b -> b.ambientLeavesBlockSoundPlayer),
+                    propertiesCodec()
+            ).apply(instance, AspenGroveLeavesBlock::new)
+    );
+
+    public AspenGroveLeavesBlock(AmbientLeavesBlockSoundPlayer soundPlayer, BlockBehaviour.Properties properties) {
+        super(soundPlayer, properties);
     }
 
     @Override
@@ -27,7 +36,7 @@ public class AspenGroveLeavesBlock extends LeavesBlock {
         if (random.nextFloat() < 0.05f) {
             BlockPos blockPos = pos.below();
             BlockState blockState = level.getBlockState(blockPos);
-            if (blockState.isFaceSturdy(level, blockPos, net.minecraft.core.Direction.UP)) {
+            if (blockState.isFaceSturdy(level, blockPos, Direction.UP)) {
                 return;
             }
 
@@ -47,9 +56,5 @@ public class AspenGroveLeavesBlock extends LeavesBlock {
                 );
             }
         }
-    }
-
-    @Override
-    protected void spawnFallingLeavesParticle(Level level,BlockPos blockPos,RandomSource randomSource) {
     }
 }
