@@ -22,15 +22,16 @@
 			"dngnrr.aspengrove.AspenGrove"
 		],
 		"client": [
-			"dngnrr.aspengrove.AspenGroveClient"
+			"dngnrr.aspengrove.classes.client.AspenGroveClient"
 		]
 	},
+	"mixins": [
+		"aspengrove.mixins.json"
+	],
 	"depends": {
 		"fabricloader": ">=${min_fabric_loader_version}",
 		"minecraft": "~${min_minecraft_version}",
 		"java": ">=${java_version}",
-		"fabric-api": "*",
-		"nbtfied_trees": "*",
-		"biolith": "*"
+		"fabric-api": "*"
 	}
 }

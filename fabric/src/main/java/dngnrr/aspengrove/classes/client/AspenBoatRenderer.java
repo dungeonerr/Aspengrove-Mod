@@ -1,4 +1,4 @@
-package dngnrr.aspengrove;
+package dngnrr.aspengrove.classes.client;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.BoatRenderer;

@@ -2,7 +2,6 @@ package dngnrr.aspengrove.classes;
 
 import dngnrr.aspengrove.AspenGrove;
 import net.fabricmc.fabric.api.registry.FuelValueEvents;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -375,11 +374,6 @@ public class AspenGroveBlocks {
             builder.add(ASPEN_HANGING_SIGN_ITEM,200);
             builder.add(ASPEN_SLAB,150);
         });
-    }
-
-    public static void registerStrippables() {
-        StrippableBlockRegistry.register(ASPEN_LOG,STRIPPED_ASPEN_LOG);
-        StrippableBlockRegistry.register(ASPEN_WOOD,STRIPPED_ASPEN_WOOD);
     }
 
     public static void registerFlammables() {

@@ -34,6 +34,7 @@
     "item.aspengrove.aspen_chest_boat": "Aspen Chest Boat",
     "item.aspengrove.bouquet": "Bouquet",
     "itemGroup.aspengrove": "Aspen Grove",
+    "tag.item.aspengrove.aspen_logs": "Aspen Logs",
     "modmenu.descriptionTranslation.aspengrove": "Add new blocks and biome!",
     "fml.menu.mods.info.description.aspengrove": "Add new blocks and biome!"
 }
