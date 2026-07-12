@@ -3,7 +3,8 @@
   "package": "dngnrr.aspengrove.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "BlockTransformerMixin"
+    "BlockTransformerMixin",
+    "MultiNoisePresetMixin"
   ],
   "injectors": {
     "defaultRequire": 1
