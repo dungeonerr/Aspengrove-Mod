@@ -45,5 +45,4 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
     implementation "com.terraformersmc:biolith-fabric:${biolith_version}"
-//  include "com.terraformersmc:biolith-fabric:${biolith_version}"
 }

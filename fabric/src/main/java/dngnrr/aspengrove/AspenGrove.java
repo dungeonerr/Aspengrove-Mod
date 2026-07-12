@@ -17,13 +17,11 @@ public class AspenGrove implements ModInitializer {
         AspenGroveBlocks.initialize();
         AspenGroveBlocks.registerFuels();
         AspenGroveBlocks.registerFlammables();
-        AspenGroveBlocks.registerCompostables();
         AspenGroveCreativeTab.initialize();
         AspenGroveTags.initialize();
         AspenGroveTreeGrowers.initialize();
         AspenGroveEntities.initialize();
         AspenGroveItems.initialize();
-        AspenGroveItems.registerCompostables();
         AspenGroveItems.registerFuels();
 //        AspenGroveBiomes.registerBiomes();
 

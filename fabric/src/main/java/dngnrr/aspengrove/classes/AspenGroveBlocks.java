@@ -7,10 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
@@ -33,23 +30,14 @@ public class AspenGroveBlocks {
         addToBlockEntityTypes();
     }
 
-    private static Block register(String name,Function<BlockBehaviour.Properties, Block> blockFactory,BlockBehaviour.Properties settings,boolean shouldRegisterItem) {
+    private static Block register(String name,Function<BlockBehaviour.Properties, Block> blockFactory,BlockBehaviour.Properties settings) {
         ResourceKey<Block> blockKey = keyOfBlock(name);
         Block block = blockFactory.apply(settings.setId(blockKey));
-        if (shouldRegisterItem) {
-            ResourceKey<Item> itemKey = keyOfItem(name);
-            BlockItem blockItem = new BlockItem(block,new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
-            Registry.register(BuiltInRegistries.ITEM,itemKey,blockItem);
-        }
         return Registry.register(BuiltInRegistries.BLOCK,blockKey,block);
     }
 
     private static ResourceKey<Block> keyOfBlock(String name) {
         return ResourceKey.create(Registries.BLOCK,Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID,name));
-    }
-
-    private static ResourceKey<Item> keyOfItem(String name) {
-        return ResourceKey.create(Registries.ITEM,Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID,name));
     }
 
     public static final Block ASPEN_LOG = register(
@@ -60,8 +48,7 @@ public class AspenGroveBlocks {
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS),
-            true
+                    .instrument(NoteBlockInstrument.BASS)
     );
 
     public static final Block STRIPPED_ASPEN_LOG = register(
@@ -72,8 +59,7 @@ public class AspenGroveBlocks {
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS),
-            true
+                    .instrument(NoteBlockInstrument.BASS)
     );
 
     public static final Block ASPEN_WOOD = register(
@@ -84,8 +70,7 @@ public class AspenGroveBlocks {
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS),
-            true
+                    .instrument(NoteBlockInstrument.BASS)
     );
 
     public static final Block STRIPPED_ASPEN_WOOD = register(
@@ -96,8 +81,7 @@ public class AspenGroveBlocks {
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS),
-            true
+                    .instrument(NoteBlockInstrument.BASS)
     );
 
     public static final Block ASPEN_PLANKS = register(
@@ -108,32 +92,28 @@ public class AspenGroveBlocks {
                     .sound(SoundType.WOOD)
                     .strength(2.0F)
                     .ignitedByLava()
-                    .instrument(NoteBlockInstrument.BASS),
-            true
+                    .instrument(NoteBlockInstrument.BASS)
     );
 
     public static final Block ASPEN_SLAB = register(
             "aspen_slab",
             SlabBlock::new,
             BlockBehaviour.Properties
-                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS),
-            true
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
     );
 
     public static final Block ASPEN_STAIRS = register(
             "aspen_stairs",
             (settings) -> new StairBlock(ASPEN_PLANKS.defaultBlockState(),settings),
             BlockBehaviour.Properties
-                    .ofFullCopy(ASPEN_PLANKS),
-            true
+                    .ofFullCopy(ASPEN_PLANKS)
     );
 
     public static final Block ASPEN_FENCE = register(
             "aspen_fence",
             FenceBlock::new,
             BlockBehaviour.Properties
-                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS),
-            true
+                    .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
     );
 
     public static final Block ASPEN_FENCE_GATE = register(
@@ -141,8 +121,7 @@ public class AspenGroveBlocks {
             (settings) -> new FenceGateBlock(WoodType.OAK,settings),
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
-                    .noOcclusion(),
-            true
+                    .noOcclusion()
     );
 
     public static final Block ASPEN_PRESSURE_PLATE = register(
@@ -151,8 +130,7 @@ public class AspenGroveBlocks {
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .noCollision()
-                    .strength(0.5f),
-            true
+                    .strength(0.5f)
     );
 
     public static final Block ASPEN_BUTTON = register(
@@ -161,8 +139,7 @@ public class AspenGroveBlocks {
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .noCollision()
-                    .strength(0.5f),
-            true
+                    .strength(0.5f)
     );
 
     public static final Block ASPEN_DOOR = register(
@@ -172,8 +149,7 @@ public class AspenGroveBlocks {
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
                     .isViewBlocking((state,world,pos) -> false)
-                    .noOcclusion(),
-            true
+                    .noOcclusion()
     );
 
     public static final Block ASPEN_TRAPDOOR = register(
@@ -183,8 +159,7 @@ public class AspenGroveBlocks {
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
                     .isViewBlocking((state,world,pos) -> false)
-                    .noOcclusion(),
-            true
+                    .noOcclusion()
     );
 
     public static final Block ASPEN_SIGN = Registry.register(
@@ -208,18 +183,6 @@ public class AspenGroveBlocks {
                     .forceSolidOn()
                     .noCollision()
                     .strength(1.0F)
-            )
-    );
-    public static final Item ASPEN_SIGN_ITEM = Registry.register(
-            BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_sign"),
-            new SignItem(
-                    ASPEN_SIGN,
-                    ASPEN_WALL_SIGN,
-                    new Item.Properties()
-                            .stacksTo(16)
-                            .setId(keyOfItem("aspen_sign")
-                            )
             )
     );
 
@@ -247,25 +210,12 @@ public class AspenGroveBlocks {
             )
     );
 
-    public static final Item ASPEN_HANGING_SIGN_ITEM = Registry.register(
-            BuiltInRegistries.ITEM,
-            Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_hanging_sign"),
-            new HangingSignItem(
-                    ASPEN_HANGING_SIGN,
-                    ASPEN_WALL_HANGING_SIGN,
-                    new Item.Properties()
-                            .stacksTo(16)
-                            .setId(keyOfItem("aspen_hanging_sign"))
-            )
-    );
-
     public static final Block ASPEN_SHELF = register(
             "aspen_shelf",
             ShelfBlock::new,
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
-                    .sound(SoundType.SHELF),
-            true
+                    .sound(SoundType.SHELF)
     );
 
     public static final Block ASPEN_LEAVES = register(
@@ -280,8 +230,7 @@ public class AspenGroveBlocks {
                     .pushReaction(PushReaction.DESTROY)
                     .noOcclusion()
                     .randomTicks()
-                    .ignitedByLava(),
-            true
+                    .ignitedByLava()
     );
 
     public static final Block ASPEN_SAPLING = register(
@@ -295,65 +244,50 @@ public class AspenGroveBlocks {
                     .sound(SoundType.GRASS)
                     .pushReaction(PushReaction.DESTROY)
                     .noOcclusion()
-                    .ignitedByLava(),
-            true
+                    .ignitedByLava()
     );
 
     public static final Block POTTED_ASPEN_SAPLING = register(
             "potted_aspen_sapling",
             (properties) -> new FlowerPotBlock(ASPEN_SAPLING, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)
-                    .mapColor(MapColor.GRASS),
-            false
+                    .mapColor(MapColor.GRASS)
     );
 
     public static final Block HONEYFLOWER = register(
             "honeyflower",
             (properties) -> new FlowerBlock(MobEffects.HEALTH_BOOST, 10, properties),
             BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.POPPY),
-            true
+                    .ofFullCopy(Blocks.POPPY)
     );
 
     public static final Block POTTED_HONEYFLOWER = register(
             "potted_honeyflower",
             (properties) -> new FlowerPotBlock(HONEYFLOWER, properties),
             BlockBehaviour.Properties
-                    .ofFullCopy(Blocks.POTTED_POPPY),
-            false
+                    .ofFullCopy(Blocks.POTTED_POPPY)
     );
 
     public static final Block ORANGE_MUSHROOM = register(
             "orange_mushroom",
             (properties) -> new AspenGroveMushroomBlock(AspenGroveTreeGrowers.HUGE_ORANGE_MUSHROOM_SELECTOR, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)
-                    .mapColor(MapColor.COLOR_ORANGE),
-            true
+                    .mapColor(MapColor.COLOR_ORANGE)
     );
 
     public static final Block POTTED_ORANGE_MUSHROOM = register(
             "potted_orange_mushroom",
             (properties) -> new FlowerPotBlock(ORANGE_MUSHROOM, properties),
             BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_RED_MUSHROOM)
-                    .mapColor(MapColor.COLOR_ORANGE),
-            false
+                    .mapColor(MapColor.COLOR_ORANGE)
     );
 
     public static final Block ORANGE_MUSHROOM_BLOCK = register(
             "orange_mushroom_block",
             HugeMushroomBlock::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
-                    .mapColor(MapColor.COLOR_ORANGE),
-            true
+                    .mapColor(MapColor.COLOR_ORANGE)
     );
-
-    public static void registerCompostables() {
-        ComposterBlock.COMPOSTABLES.put(ASPEN_LEAVES.asItem(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ASPEN_SAPLING.asItem(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(HONEYFLOWER.asItem(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ORANGE_MUSHROOM.asItem(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ORANGE_MUSHROOM_BLOCK.asItem(), 0.85F);
-    }
 
     public static void registerFuels() {
         FuelValueEvents.BUILD.register((builder,context) -> {
@@ -370,8 +304,8 @@ public class AspenGroveBlocks {
             builder.add(ASPEN_DOOR,300);
             builder.add(ASPEN_TRAPDOOR,300);
             builder.add(ASPEN_SHELF,300);
-            builder.add(ASPEN_SIGN_ITEM,200);
-            builder.add(ASPEN_HANGING_SIGN_ITEM,200);
+            builder.add(AspenGroveItems.ASPEN_SIGN_ITEM,200);
+            builder.add(AspenGroveItems.ASPEN_HANGING_SIGN_ITEM,200);
             builder.add(ASPEN_SLAB,150);
         });
     }
