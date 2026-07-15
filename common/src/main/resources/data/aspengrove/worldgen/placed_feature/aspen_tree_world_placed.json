@@ -1,5 +1,5 @@
 {
-  "feature": "aspengrove:aspen_tree_world_placed",
+  "feature": "aspengrove:aspen_world_selector",
   "placement": [
     {
       "type": "minecraft:count",
