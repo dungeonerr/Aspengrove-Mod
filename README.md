@@ -1,4 +1,3 @@
-![Logo](assets/icon.png)
 Modrinth Page: https://modrinth.com/mod/aspengrove<br><br>
 
 A Fabric mod for Minecraft that add an aspen biome to game.<br>
