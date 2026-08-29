@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:yellow_dye_from_honeyflower"
+        "recipes": "aspengrove:yellow_dye_from_honeyflower"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

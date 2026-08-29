@@ -1,29 +1,22 @@
 package dngnrr.aspengrove.classes;
 
 import dngnrr.aspengrove.AspenGrove;
-import net.fabricmc.fabric.api.registry.FuelValueEvents;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.BlockEntityTypes;
-import net.minecraft.world.level.block.sounds.AmbientLeavesBlockSoundPlayer;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.resources.Identifier;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
 import java.util.function.Function;
 import java.lang.reflect.Field;
 import java.util.Set;
+
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.sounds.AmbientLeavesBlockSoundPlayer;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.resources.Identifier;
+import net.minecraft.core.registries.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.block.entity.*;
 
 public class AspenGroveBlocks {
     public static void initialize() {
@@ -148,7 +141,7 @@ public class AspenGroveBlocks {
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
-                    .isViewBlocking((state,world,pos) -> false)
+                    .isViewBlocking((state,world,pos, aabb) -> false)
                     .noOcclusion()
     );
 
@@ -158,7 +151,7 @@ public class AspenGroveBlocks {
             BlockBehaviour.Properties
                     .ofFullCopy(AspenGroveBlocks.ASPEN_PLANKS)
                     .isSuffocating((state,world,pos) -> false)
-                    .isViewBlocking((state,world,pos) -> false)
+                    .isViewBlocking((state,world,pos, aabb) -> false)
                     .noOcclusion()
     );
 
@@ -226,8 +219,7 @@ public class AspenGroveBlocks {
                     .sound(SoundType.GRASS)
                     .strength(0.2f)
                     .isSuffocating((state,world,pos) -> false)
-                    .isViewBlocking((state,world,pos) -> false)
-                    .pushReaction(PushReaction.DESTROY)
+                    .isViewBlocking((state,world,pos, aabb) -> false)
                     .noOcclusion()
                     .randomTicks()
                     .ignitedByLava()
@@ -242,7 +234,6 @@ public class AspenGroveBlocks {
                     .randomTicks()
                     .instabreak()
                     .sound(SoundType.GRASS)
-                    .pushReaction(PushReaction.DESTROY)
                     .noOcclusion()
                     .ignitedByLava()
     );
@@ -288,46 +279,6 @@ public class AspenGroveBlocks {
             BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM_BLOCK)
                     .mapColor(MapColor.COLOR_ORANGE)
     );
-
-    public static void registerFuels() {
-        FuelValueEvents.BUILD.register((builder,context) -> {
-            builder.add(ASPEN_PLANKS,300);
-            builder.add(ASPEN_LOG,300);
-            builder.add(STRIPPED_ASPEN_LOG,300);
-            builder.add(ASPEN_WOOD,300);
-            builder.add(STRIPPED_ASPEN_WOOD,300);
-            builder.add(ASPEN_FENCE,300);
-            builder.add(ASPEN_FENCE_GATE,300);
-            builder.add(ASPEN_STAIRS,300);
-            builder.add(ASPEN_BUTTON,300);
-            builder.add(ASPEN_PRESSURE_PLATE,300);
-            builder.add(ASPEN_DOOR,300);
-            builder.add(ASPEN_TRAPDOOR,300);
-            builder.add(ASPEN_SHELF,300);
-            builder.add(AspenGroveItems.ASPEN_SIGN_ITEM,200);
-            builder.add(AspenGroveItems.ASPEN_HANGING_SIGN_ITEM,200);
-            builder.add(ASPEN_SLAB,150);
-        });
-    }
-
-    public static void registerFlammables() {
-        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
-        registry.add(ASPEN_LOG, 5, 5);
-        registry.add(STRIPPED_ASPEN_LOG, 5, 5);
-        registry.add(ASPEN_WOOD, 5, 5);
-        registry.add(STRIPPED_ASPEN_WOOD, 5, 5);
-        registry.add(ASPEN_PLANKS, 5, 20);
-        registry.add(ASPEN_SLAB, 5, 20);
-        registry.add(ASPEN_STAIRS, 5, 20);
-        registry.add(ASPEN_FENCE, 5, 20);
-        registry.add(ASPEN_FENCE_GATE, 5, 20);
-        registry.add(ASPEN_LEAVES, 30, 60);
-        registry.add(ASPEN_SAPLING, 30, 60);
-        registry.add(ASPEN_SIGN, 20, 5);
-        registry.add(ASPEN_WALL_SIGN, 20, 5);
-        registry.add(ASPEN_HANGING_SIGN, 20, 5);
-        registry.add(ASPEN_WALL_HANGING_SIGN, 20, 5);
-    }
 
     private static void addToBlockEntityTypes() {
         try {

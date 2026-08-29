@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:stripped_aspen_wood"
+        "recipes": "aspengrove:stripped_aspen_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

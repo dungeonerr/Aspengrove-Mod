@@ -3,15 +3,15 @@ plugins {
 }
 
 base {
-    archivesName = "aspengrove"
+    archivesName = "${mod_id}"
 }
 
-version = mod_version_fabric
+version = "${mod_version_fabric}-${minecraft_version}"
 
 def resourceTargets = [
-        "version": mod_version,
         "mod_id": mod_id,
         "mod_name": mod_name,
+        "mod_version": mod_version,
         "mod_description": mod_description,
         "mod_license": mod_license,
         "minecraft_version": minecraft_version,
@@ -44,5 +44,5 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
-     implementation "com.terraformersmc:biolith-fabric:${biolith_version}"
+//    implementation "com.terraformersmc:biolith-fabric:${biolith_version}"
 }

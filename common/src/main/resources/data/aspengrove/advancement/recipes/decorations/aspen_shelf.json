@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:aspen_shelf"
+        "recipes": "aspengrove:aspen_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

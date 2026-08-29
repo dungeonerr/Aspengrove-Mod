@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:aspen_fence"
+        "recipes": "aspengrove:aspen_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

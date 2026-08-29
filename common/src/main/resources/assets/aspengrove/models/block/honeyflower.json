@@ -29,8 +29,8 @@
       "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45, "rescale": true },
       "shade": false,
       "faces": {
-        "west": { "uv": [ 0, 8, 16, 16 ], "texture": "#stem", "tintindex": 0 },
-        "east": { "uv": [ 0, 8, 16, 16 ], "texture": "#stem", "tintindex": 0 }
+        "west": { "uv": [ 0, 8, 16, 16 ], "texture": "#stem", "tintindex": 1 },
+        "east": { "uv": [ 0, 8, 16, 16 ], "texture": "#stem", "tintindex": 1 }
       }
     },
     {

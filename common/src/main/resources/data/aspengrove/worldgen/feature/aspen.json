@@ -13,9 +13,7 @@
         },
         "then": {
           "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "minecraft:dirt"
-          }
+          "state": "minecraft:dirt"
         }
       }
     ]
@@ -26,9 +24,7 @@
       "probability": 0.2,
       "block_provider": {
         "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "aspengrove:aspen_leaves"
-        }
+        "state": "aspengrove:aspen_leaves"
       },
       "directions": ["north", "south", "east", "west"]
     },
@@ -49,14 +45,7 @@
   },
   "foliage_provider": {
     "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "aspengrove:aspen_leaves",
-      "Properties": {
-        "distance": "7",
-        "persistent": "false",
-        "waterlogged": "false"
-      }
-    }
+    "state": "aspengrove:aspen_leaves"
   },
   "ignore_vines": true,
   "minimum_size": {
@@ -74,11 +63,6 @@
   },
   "trunk_provider": {
     "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "aspengrove:aspen_log",
-      "Properties": {
-        "axis": "y"
-      }
-    }
+    "state": "aspengrove:aspen_log"
   }
 }

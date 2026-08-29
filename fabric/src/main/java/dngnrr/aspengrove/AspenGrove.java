@@ -1,10 +1,10 @@
 package dngnrr.aspengrove;
 
-import net.fabricmc.api.ModInitializer;
-
 import dngnrr.aspengrove.classes.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.slf4j.*;
+
+import net.fabricmc.api.ModInitializer;
 
 public class AspenGrove implements ModInitializer {
     public static final String MOD_ID = "aspengrove";
@@ -15,15 +15,12 @@ public class AspenGrove implements ModInitializer {
         AspenGroveColors.initialize();
         AspenGroveWoodTypes.initialize();
         AspenGroveBlocks.initialize();
-        AspenGroveBlocks.registerFuels();
-        AspenGroveBlocks.registerFlammables();
         AspenGroveCreativeTab.initialize();
-        AspenGroveTags.initialize();
         AspenGroveTreeGrowers.initialize();
         AspenGroveEntities.initialize();
         AspenGroveItems.initialize();
-        AspenGroveItems.registerFuels();
-//        AspenGroveBiomes.registerBiomes();
+        AspenGroveRegisters.initialize();
+        AspenGroveBiomes.initialize();
 
         LOGGER.info("Aspen Grove Initialized!");
     }

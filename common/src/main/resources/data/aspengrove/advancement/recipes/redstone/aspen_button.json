@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:aspen_button"
+        "recipes": "aspengrove:aspen_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,9 +1,9 @@
 package dngnrr.aspengrove.classes.client;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.entity.BoatRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
+import net.minecraft.client.renderer.entity.*;
 
 public class AspenBoatRenderer extends BoatRenderer {
     private final Identifier customTexture;
@@ -14,7 +14,7 @@ public class AspenBoatRenderer extends BoatRenderer {
         this.customTexture = Identifier.fromNamespaceAndPath("aspengrove", "textures/entity/" + folder + "/" + name + ".png");
     }
 
-    protected net.minecraft.client.renderer.rendertype.RenderType renderType() {
+    protected RenderType renderType() {
         return this.model().renderType(this.customTexture);
     }
 }

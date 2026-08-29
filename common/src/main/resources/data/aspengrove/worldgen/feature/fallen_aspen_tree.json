@@ -7,21 +7,15 @@
         "type": "minecraft:weighted_state_provider",
         "entries": [
           {
-            "data": {
-              "Name": "minecraft:red_mushroom"
-            },
+            "data": "minecraft:red_mushroom",
             "weight": 1
           },
           {
-            "data": {
-              "Name": "minecraft:brown_mushroom"
-            },
+            "data": "minecraft:brown_mushroom",
             "weight": 1
           },
           {
-            "data": {
-              "Name": "aspengrove:orange_mushroom"
-            },
+            "data": "aspengrove:orange_mushroom",
             "weight": 2
           }
         ]
@@ -38,11 +32,6 @@
   "stump_decorators": [],
   "trunk_provider": {
     "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "aspengrove:aspen_log",
-      "Properties": {
-        "axis": "y"
-      }
-    }
+    "state": "aspengrove:aspen_log"
   }
 }

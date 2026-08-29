@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:aspen_trapdoor"
+        "recipes": "aspengrove:aspen_trapdoor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,8 +1,8 @@
 package dngnrr.aspengrove.classes;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Items;
+
+import net.minecraft.world.item.*;
 
 public class AspenGroveCreativeTab {
     public static void initialize() {
@@ -25,7 +25,7 @@ public class AspenGroveCreativeTab {
         });
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
-            entries.insertAfter(Items.BIRCH_BUTTON,
+            entries.insertAfter(Items.BIRCH_LOG,
                     AspenGroveItems.ASPEN_LOG_ITEM
             );
             entries.insertAfter(Items.BIRCH_LEAVES,

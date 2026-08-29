@@ -5,9 +5,7 @@
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
-        "state": {
-          "Name": "aspengrove:orange_mushroom"
-        }
+        "state": "aspengrove:orange_mushroom"
       }
     }
   ]

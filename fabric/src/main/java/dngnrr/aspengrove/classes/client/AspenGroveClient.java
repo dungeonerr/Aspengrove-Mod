@@ -1,19 +1,14 @@
 package dngnrr.aspengrove.classes.client;
 
 import dngnrr.aspengrove.classes.*;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
+
+import net.fabricmc.api.*;
+import net.fabricmc.fabric.api.client.rendering.v1.*;
+
 import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.resources.Identifier;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
-import net.minecraft.world.level.FoliageColor;
-
-import net.minecraft.client.color.block.BlockColors;
 
 import java.util.List;
 
@@ -31,7 +26,7 @@ public class AspenGroveClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockColorRegistry.register(
-                List.of(BlockTintSources.grass()),
+                List.of(BlockTintSources.foliage()),
                 AspenGroveBlocks.HONEYFLOWER
         );
 

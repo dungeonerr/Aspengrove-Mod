@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:aspen_planks"
+        "recipes": "aspengrove:aspen_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

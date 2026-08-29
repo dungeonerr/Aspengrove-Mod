@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aspengrove:suspicious_stew_from_honeyflower"
+        "recipes": "aspengrove:suspicious_stew_from_honeyflower"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
