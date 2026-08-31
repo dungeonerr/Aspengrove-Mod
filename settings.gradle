@@ -6,6 +6,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'aspengrove'
+rootProject.name = "aspengrove"
 
-include 'common', 'fabric', 'neoforge'
+include "common", "fabric", "neoforge"

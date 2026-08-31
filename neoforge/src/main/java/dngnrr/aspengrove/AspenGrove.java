@@ -27,7 +27,6 @@ public class AspenGrove {
     public AspenGrove(IEventBus modEventBus) {
         AspenGroveColors.initialize();
         AspenGroveWoodTypes.initialize();
-        AspenGroveTags.initialize();
         AspenGroveTreeGrowers.initialize();
 
         modEventBus.addListener(this::onRegister);
@@ -52,7 +51,7 @@ public class AspenGrove {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            AspenGroveBiomes.registerBiomes();
+            AspenGroveBiomes.initialize();
             registerFlammability();
             registerStrippables();
             LOGGER.info("Aspen Grove Initialized!");

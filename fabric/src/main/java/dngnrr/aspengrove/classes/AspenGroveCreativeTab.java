@@ -1,44 +1,65 @@
 package dngnrr.aspengrove.classes;
 
-import dngnrr.aspengrove.AspenGrove;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
+import net.minecraft.world.item.*;
 
 public class AspenGroveCreativeTab {
-    public static final CreativeModeTab ASPENGROVE_TAB = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-            ResourceLocation.fromNamespaceAndPath(AspenGrove.MOD_ID,"aspengrove"),
-            FabricItemGroup.builder( ).title(Component.translatable("itemGroup.aspengrove"))
-                    .icon(() -> new ItemStack(AspenGroveBlocks.ASPEN_LOG)).displayItems((displayContext, entries) -> {
-                        entries.accept(AspenGroveBlocks.ASPEN_LOG);
-                        entries.accept(AspenGroveBlocks.ASPEN_WOOD);
-                        entries.accept(AspenGroveBlocks.STRIPPED_ASPEN_LOG);
-                        entries.accept(AspenGroveBlocks.STRIPPED_ASPEN_WOOD);
-                        entries.accept(AspenGroveBlocks.ASPEN_PLANKS);
-                        entries.accept(AspenGroveBlocks.ASPEN_STAIRS);
-                        entries.accept(AspenGroveBlocks.ASPEN_SLAB);
-                        entries.accept(AspenGroveBlocks.ASPEN_FENCE);
-                        entries.accept(AspenGroveBlocks.ASPEN_FENCE_GATE);
-                        entries.accept(AspenGroveBlocks.ASPEN_DOOR);
-                        entries.accept(AspenGroveBlocks.ASPEN_TRAPDOOR);
-                        entries.accept(AspenGroveBlocks.ASPEN_PRESSURE_PLATE);
-                        entries.accept(AspenGroveBlocks.ASPEN_BUTTON);
-                        entries.accept(AspenGroveBlocks.ASPEN_SIGN_ITEM);
-                        entries.accept(AspenGroveBlocks.ASPEN_HANGING_SIGN_ITEM);
-                        entries.accept(AspenGroveItems.ASPEN_BOAT);
-                        entries.accept(AspenGroveItems.ASPEN_CHEST_BOAT);
-                        entries.accept(AspenGroveBlocks.ASPEN_LEAVES);
-                        entries.accept(AspenGroveBlocks.ASPEN_SAPLING);
-                        entries.accept(AspenGroveBlocks.HONEYFLOWER);
-                        entries.accept(AspenGroveBlocks.ORANGE_MUSHROOM);
-                        entries.accept(AspenGroveBlocks.ORANGE_MUSHROOM_BLOCK);
-                        entries.accept(AspenGroveItems.BOUQUET);
-                    }).build( ));
-
     public static void initialize() {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.addAfter(Items.BIRCH_BUTTON,
+                    AspenGroveBlocks.ASPEN_LOG,
+                    AspenGroveBlocks.ASPEN_WOOD,
+                    AspenGroveBlocks.STRIPPED_ASPEN_LOG,
+                    AspenGroveBlocks.STRIPPED_ASPEN_WOOD,
+                    AspenGroveBlocks.ASPEN_PLANKS,
+                    AspenGroveBlocks.ASPEN_STAIRS,
+                    AspenGroveBlocks.ASPEN_SLAB,
+                    AspenGroveBlocks.ASPEN_FENCE,
+                    AspenGroveBlocks.ASPEN_FENCE_GATE,
+                    AspenGroveBlocks.ASPEN_DOOR,
+                    AspenGroveBlocks.ASPEN_TRAPDOOR,
+                    AspenGroveBlocks.ASPEN_PRESSURE_PLATE,
+                    AspenGroveBlocks.ASPEN_BUTTON
+            );
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
+            entries.addAfter(Items.BIRCH_LOG,
+                    AspenGroveBlocks.ASPEN_LOG
+            );
+            entries.addAfter(Items.BIRCH_LEAVES,
+                    AspenGroveBlocks.ASPEN_LEAVES
+            );
+            entries.addAfter(Items.RED_MUSHROOM_BLOCK,
+                    AspenGroveBlocks.ORANGE_MUSHROOM_BLOCK
+            );
+            entries.addAfter(Items.BIRCH_SAPLING,
+                    AspenGroveBlocks.ASPEN_SAPLING
+            );
+            entries.addAfter(Items.RED_MUSHROOM,
+                    AspenGroveBlocks.ORANGE_MUSHROOM
+            );
+            entries.addAfter(Items.POPPY,
+                    AspenGroveBlocks.HONEYFLOWER
+            );
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+            entries.addAfter(Items.BIRCH_HANGING_SIGN,
+                    AspenGroveBlocks.ASPEN_SIGN_ITEM,
+                    AspenGroveBlocks.ASPEN_HANGING_SIGN_ITEM
+            );
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+            entries.addAfter(Items.BONE_MEAL,
+                    AspenGroveItems.BOUQUET
+            );
+            entries.addAfter(Items.BIRCH_CHEST_BOAT,
+                    AspenGroveItems.ASPEN_BOAT,
+                    AspenGroveItems.ASPEN_CHEST_BOAT
+            );
+        });
     }
 }

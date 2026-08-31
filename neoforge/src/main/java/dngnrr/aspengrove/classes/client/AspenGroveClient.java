@@ -5,15 +5,32 @@ import dngnrr.aspengrove.classes.*;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.GrassColor;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
+@EventBusSubscriber(Dist.CLIENT)
 public class AspenGroveClient {
+
+    @SubscribeEvent
+    public static void registerBlockTintSources(RegisterColorHandlersEvent.Block event) {
+        event.getBlockColors().register((state, level, pos, tintIndex) -> {
+            if (level == null || pos == null) {
+                return GrassColor.getDefaultColor();
+            }
+            return BiomeColors.getAverageGrassColor(level, pos);
+        }, AspenGroveBlocks.HONEYFLOWER);
+    }
     public static final ModelLayerLocation ASPEN_BOAT_LAYER = register("boat/aspen");
     public static final ModelLayerLocation ASPEN_CHEST_BOAT_LAYER = register("chest_boat/aspen");
 

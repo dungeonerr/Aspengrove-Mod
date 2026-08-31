@@ -19,6 +19,7 @@
     "block.aspengrove.aspen_leaves": "Aspen Leaves",
     "block.aspengrove.aspen_sapling": "Aspen Sapling",
     "block.aspengrove.potted_aspen_sapling": "Potted Aspen Sapling",
+    "block.aspengrove.aspen_shelf": "Aspen Shelf",
     "block.aspengrove.honeyflower": "Honeyflower",
     "block.aspengrove.potted_honeyflower": "Potted Honeyflower",
     "block.aspengrove.orange_mushroom": "Orange Mushroom",
@@ -32,7 +33,7 @@
     "item.aspengrove.aspen_boat": "Aspen Boat",
     "item.aspengrove.aspen_chest_boat": "Aspen Chest Boat",
     "item.aspengrove.bouquet": "Bouquet",
-    "itemGroup.aspengrove": "Aspen Grove",
+    "tag.item.aspengrove.aspen_logs": "Aspen Logs",
     "modmenu.descriptionTranslation.aspengrove": "Add new blocks and biome!",
     "fml.menu.mods.info.description.aspengrove": "Add new blocks and biome!"
 }

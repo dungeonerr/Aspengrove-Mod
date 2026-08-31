@@ -19,6 +19,7 @@
     "block.aspengrove.aspen_leaves": "Осиновые листья",
     "block.aspengrove.aspen_sapling": "Саженец осины",
     "block.aspengrove.potted_aspen_sapling": "Саженец осины в горшке",
+    "block.aspengrove.aspen_shelf": "Осиновая полка",
     "block.aspengrove.honeyflower": "Мёдоцвет",
     "block.aspengrove.potted_honeyflower": "Мёдоцвет в горшке",
     "block.aspengrove.orange_mushroom": "Оранжевый гриб",
@@ -32,7 +33,7 @@
     "item.aspengrove.aspen_boat": "Осиновая лодка",
     "item.aspengrove.aspen_chest_boat": "Осиновая грузовая лодка",
     "item.aspengrove.bouquet": "Букет",
-    "itemGroup.aspengrove": "Aspen Grove",
+    "tag.item.aspengrove.aspen_logs": "Осиновые брёвна",
     "modmenu.descriptionTranslation.aspengrove": "Добавляет новые блоки и биом!",
     "fml.menu.mods.info.description.aspengrove": "Добавляет новые блоки и биом!"
 }

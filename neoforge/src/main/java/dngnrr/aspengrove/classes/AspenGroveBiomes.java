@@ -14,7 +14,7 @@ public class AspenGroveBiomes {
             ResourceLocation.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_grove")
     );
 
-    public static void registerBiomes() {
+    public static void initialize() {
         BiomePlacement.replaceOverworld(Biomes.FOREST, ASPEN_GROVE, 0.27);
         BiomePlacement.replaceOverworld(Biomes.BIRCH_FOREST, ASPEN_GROVE, 0.27);
         BiomePlacement.replaceOverworld(Biomes.TAIGA, ASPEN_GROVE, 0.27);

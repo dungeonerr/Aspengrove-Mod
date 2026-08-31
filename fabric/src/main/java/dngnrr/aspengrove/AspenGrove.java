@@ -21,9 +21,8 @@ public class AspenGrove implements ModInitializer {
         AspenGroveEntities.initialize();
         AspenGroveItems.initialize();
         AspenGroveCreativeTab.initialize();
-        AspenGroveTags.initialize();
         AspenGroveTreeGrowers.initialize();
-        AspenGroveBiomes.registerBiomes();
+        AspenGroveBiomes.initialize();
 
         LOGGER.info("Aspen Grove Initialized!");
     }
