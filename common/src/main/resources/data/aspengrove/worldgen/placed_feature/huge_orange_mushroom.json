@@ -1,12 +1,12 @@
 {
-  "feature": "aspengrove:aspen_3",
+  "feature": "aspengrove:huge_orange_mushroom",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "aspengrove:aspen_sapling"
+          "Name": "aspengrove:orange_mushroom"
         }
       }
     }

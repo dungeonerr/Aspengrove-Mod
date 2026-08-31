@@ -26,10 +26,9 @@ public class AspenGrove {
         AspenGroveBlocks.initialize(modEventBus);
         AspenGroveEntities.init(modEventBus);
         AspenGroveItems.initialize(modEventBus);
-        AspenGroveCreativeTab.init(modEventBus);
+        AspenGroveCreativeTab.initialize(modEventBus);
         AspenGroveColors.initialize();
         AspenGroveWoodTypes.initialize();
-        AspenGroveTags.initialize();
         AspenGroveTreeGrowers.initialize();
 
         modEventBus.addListener(this::commonSetup);

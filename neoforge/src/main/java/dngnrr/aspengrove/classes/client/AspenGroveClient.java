@@ -6,15 +6,32 @@ import dngnrr.aspengrove.classes.AspenGroveEntities;
 import dngnrr.aspengrove.classes.AspenGroveWoodTypes;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.GrassColor;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
+@EventBusSubscriber(Dist.CLIENT)
 public class AspenGroveClient {
+
+    @SubscribeEvent
+    public static void registerBlockTintSources(RegisterColorHandlersEvent.Block event) {
+        event.getBlockColors().register((state, level, pos, tintIndex) -> {
+            if (level == null || pos == null) {
+                return GrassColor.getDefaultColor();
+            }
+            return BiomeColors.getAverageGrassColor(level, pos);
+        }, AspenGroveBlocks.HONEYFLOWER.get());
+    }
 
     public static final ModelLayerLocation ASPEN_BOAT_LAYER =
             new ModelLayerLocation(Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "boat/aspen"), "main");

@@ -65,7 +65,7 @@
         "type": "minecraft:glow_squid",
         "maxCount": 6,
         "minCount": 4,
-        "weigh": 10
+        "weight": 10
       }
     ],
     "monster": [
@@ -73,19 +73,19 @@
         "type": "minecraft:spider",
         "maxCount": 4,
         "minCount": 4,
-        "weigh": 100
+        "weight": 100
       },
       {
         "type": "minecraft:enderman",
         "maxCount": 4,
         "minCount": 1,
-        "weigh": 10
+        "weight": 10
       },
       {
         "type": "minecraft:slime",
         "maxCount": 4,
         "minCount": 4,
-        "weigh": 100
+        "weight": 100
       }
     ]
   },

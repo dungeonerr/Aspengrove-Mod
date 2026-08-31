@@ -28,13 +28,6 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "ohthetreesyoullgrow"
-type = "required"
-versionRange = "*"
-ordering = "BEFORE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
 modId = "biolith"
 type = "required"
 versionRange = "*"

@@ -1,8 +1,10 @@
-package dngnrr.aspengrove;
+package dngnrr.aspengrove.classes.client;
 
+import dngnrr.aspengrove.AspenGrove;
 import dngnrr.aspengrove.classes.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -10,6 +12,9 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.GrassColor;
+
+import java.util.List;
 
 public class AspenGroveClient implements ClientModInitializer {
     public static final String MOD_ID = "aspengrove";
@@ -21,6 +26,13 @@ public class AspenGroveClient implements ClientModInitializer {
     }
     @Override
     public void onInitializeClient() {
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+            if (world == null || pos == null) {
+                return GrassColor.getDefaultColor();
+            }
+            return net.minecraft.client.renderer.BiomeColors.getAverageGrassColor(world, pos);
+        }, AspenGroveBlocks.HONEYFLOWER);
+
         EntityRendererRegistry.register(AspenGroveEntities.ASPEN_BOAT, context ->
                 new AspenBoatRenderer(context, ModelLayers.OAK_BOAT, "aspen", false)
         );
