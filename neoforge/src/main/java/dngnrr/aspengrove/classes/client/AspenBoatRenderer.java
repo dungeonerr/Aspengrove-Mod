@@ -5,8 +5,9 @@ import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.fml.common.EventBusSubscriber;
 
-@OnlyIn(Dist.CLIENT)
+@EventBusSubscriber(Dist.CLIENT)
 public class AspenBoatRenderer extends BoatRenderer {
     public AspenBoatRenderer(EntityRendererProvider.Context context, ModelLayerLocation modelLayer) {
         super(context, modelLayer);

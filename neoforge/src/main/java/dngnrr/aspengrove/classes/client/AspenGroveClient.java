@@ -1,17 +1,34 @@
 package dngnrr.aspengrove.classes.client;
 
 import dngnrr.aspengrove.AspenGrove;
+import dngnrr.aspengrove.classes.AspenGroveBlocks;
 import dngnrr.aspengrove.classes.AspenGroveEntities;
 import dngnrr.aspengrove.classes.AspenGroveWoodTypes;
+import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.Identifier;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
+import java.util.List;
+
+@EventBusSubscriber(Dist.CLIENT)
 public class AspenGroveClient {
+
+    @SubscribeEvent
+    public static void registerBlockTintSources(RegisterColorHandlersEvent.BlockTintSources event) {
+        event.register(
+                List.of(BlockTintSources.grass()),
+                AspenGroveBlocks.HONEYFLOWER.get()
+        );
+    }
 
     public static final ModelLayerLocation ASPEN_BOAT_LAYER =
             new ModelLayerLocation(Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "boat/aspen"), "main");

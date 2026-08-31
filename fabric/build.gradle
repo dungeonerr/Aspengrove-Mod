@@ -1,17 +1,17 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id "net.fabricmc.fabric-loom" version "${loom_version}"
 }
 
 base {
-    archivesName = "aspengrove"
+    archivesName = "${mod_id}"
 }
 
 version = mod_version_fabric
 
 def resourceTargets = [
-        "version": mod_version,
         "mod_id": mod_id,
         "mod_name": mod_name,
+        "mod_version": mod_version,
         "mod_description": mod_description,
         "mod_license": mod_license,
         "minecraft_version": minecraft_version,
@@ -36,14 +36,6 @@ processResources {
 }
 
 loom {
-    splitEnvironmentSourceSets()
-
-    mods {
-        "${mod_id}" {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
-    }
     accessWidenerPath = file("src/main/resources/${mod_id}.accesswidener")
 }
 
@@ -53,10 +45,4 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
     implementation "com.terraformersmc:biolith-fabric:${biolith_version}"
-    include "com.terraformersmc:biolith-fabric:${biolith_version}"
-
-    implementation project(":nbtfied_trees:fabric")
-    include project(":nbtfied_trees:fabric")
-
-    clientImplementation sourceSets.main.output
 }
