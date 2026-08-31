@@ -1,12 +1,11 @@
 subprojects {
-    apply plugin: 'java-library'
-    apply plugin: 'idea'
+    apply plugin: "java-library"
+    apply plugin: "idea"
 
-    group = 'dngnrr.aspengrove'
+    group = "${mod_group}"
 
     repositories {
-        maven { name = "TerraformersMC"; url = "https://maven.terraformersmc.com/" }
-        maven { name = "NeoForged"; url = "https://maven.neoforged.net/releases/" }
+        maven {url = "https://maven.terraformersmc.com/" }
     }
 
     tasks.withType(JavaCompile).configureEach {

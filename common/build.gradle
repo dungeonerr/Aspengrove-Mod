@@ -1,9 +1,9 @@
 plugins {
-    id 'java-library'
+    id "java-library"
 }
 
 base {
-    archivesName = "aspengrove"
+    archivesName = "${mod_id}"
 }
 
 version = mod_version_common

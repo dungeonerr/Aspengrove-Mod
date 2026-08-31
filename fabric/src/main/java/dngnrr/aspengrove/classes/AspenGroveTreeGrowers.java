@@ -12,10 +12,10 @@ import java.util.Optional;
 
 public class AspenGroveTreeGrowers {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SELECTOR =
-            ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_selector"));
+            ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen"));
 
     public static final ResourceKey<PlacedFeature> ASPEN_TREE_PLACED =
-            ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen_tree_placed"));
+            ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "aspen"));
 
     public static final TreeGrower ASPEN = new TreeGrower(
             "aspen",
@@ -25,7 +25,7 @@ public class AspenGroveTreeGrowers {
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_ORANGE_MUSHROOM_SELECTOR =
-            ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "huge_orange_mushroom_selector"));
+            ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(AspenGrove.MOD_ID, "huge_orange_mushroom"));
 
     public static void initialize() {
     }

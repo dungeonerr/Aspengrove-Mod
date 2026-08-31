@@ -1,9 +1,9 @@
 plugins {
-    id 'net.neoforged.moddev' version '2.0.141'
+    id "net.neoforged.moddev" version "2.0.141"
 }
 
 base {
-    archivesName = "aspengrove"
+    archivesName = "${mod_id}"
 }
 
 version = mod_version_neoforge
@@ -58,8 +58,4 @@ dependencies {
     implementation project(":common")
 
     implementation "com.terraformersmc:biolith-neoforge:${biolith_version}"
-    jarJar "com.terraformersmc:biolith-neoforge:${biolith_version}"
-
-    implementation project(":nbtfied_trees:neoforge")
-    jarJar project(":nbtfied_trees:neoforge")
 }

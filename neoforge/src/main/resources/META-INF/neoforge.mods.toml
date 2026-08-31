@@ -8,7 +8,8 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 description = "${mod_description}"
 authors = "Dungeonerr, StarmanMine142"
-logoFile = "assets/${mod_id}/icon.png"
+iconFile = "assets/${mod_id}/icon.png"
+bannerFile = "assets/${mod_id}/icon.png"
 
 displayURL = "${homepage_link}"
 issueTrackerURL = "${issues_link}"
@@ -25,13 +26,6 @@ modId = "neoforge"
 type = "required"
 versionRange = "[${neoforge_loader_version},)"
 ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "nbtfied_trees"
-type = "required"
-versionRange = "*"
-ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
