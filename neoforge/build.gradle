@@ -37,7 +37,7 @@ neoForge {
     version = project.neoforge_loader_version
 
     accessTransformers {
-        from file("src/main/resources/META-INF/accesstransformer.cfg\")
+        from file("src/main/resources/META-INF/accesstransformer.cfg")
     }
 
     mods {
